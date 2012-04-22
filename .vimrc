@@ -138,3 +138,10 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
       
+" V buffer split
+" Vertical Split Buffer Function
+function VerticalSplitBuffer(buffer)
+    execute "vert belowright sb" a:buffer 
+endfunction
+" Vertical Split Buffer Mapping
+command -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
