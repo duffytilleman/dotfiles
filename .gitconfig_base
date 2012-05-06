@@ -9,3 +9,4 @@
   # external = git_diff_wrapper
 [pager]
   diff=less
+
