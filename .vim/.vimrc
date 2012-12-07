@@ -1,4 +1,5 @@
 filetype off
+call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -34,6 +35,7 @@ set scrolloff=4
 set foldmethod=indent
 set foldlevel=99
 set pastetoggle=<F2>
+set colorcolumn=100
 
 
 " Keep swap files in one of these 
@@ -154,3 +156,6 @@ command -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
+let maplocalleader=","
+
+noremap <F5> :!sudo apache2ctl graceful<CR>

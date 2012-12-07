@@ -9,4 +9,16 @@
   # external = git_diff_wrapper
 [pager]
   diff=less
-
+[alias]
+  s = status
+  d = diff
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+[merge]
+	tool = vimdiff
+[mergetool "threesome"]
+  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+  trustExitCode = true
+[mergetool "vim_basic"]
+  cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED"
+  trustExitCode = true
