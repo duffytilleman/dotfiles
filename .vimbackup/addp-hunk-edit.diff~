@@ -1,0 +1,28 @@
+# Manual hunk edit mode -- see bottom for a quick guide
+@@ -4,10 +4,14 @@
+ 
+   def post(thread,replies)
+     table :width => "100%", :style =>"margin-bottom: 19px;" do
+-      td :style => "padding:1 15px 0 0;", :width=> "100px", :valign => "top" do
+-        a :href => user_path(@email[:creators][thread.creator_id]), :cstag => "user_link_#{thread.id}" do
+-          img :src => "http://#{Cs.env.couchsurfing_base_domain_for_rails}#{@email[:creators][thread.creator_id].profile_image.image_url(:extra_large_thumb)}", :alt => @email[:creators][thread.creator_id].public_name, :title => @email[:creators][thread.creator_id].public_name
++      td :style => "padding:1 15px 0 0;", :width=> "60px", :valign => "top" do
++        a :href => thread_path(:id => thread.to_param), :cstag => "user_link_#{thread.id}" do
++          img :src => "http://#{Cs.env.couchsurfing_base_domain_for_rails}#{@email[:creators][thread.creator_id].profile_image.image_url(:extra_large_thumb)}",
++              :alt => @email[:creators][thread.creator_id].public_name,
++              :title => @email[:creators][thread.creator_id].public_name,
++              :style => "width: 60px; height: 60px; border-radius: 30px;"
++          #img :src => "#{@email[:creators][thread.creator_id].profile_image.image_url(:extra_large_thumb)}", :alt => @email[:creators][thread.creator_id].public_name, :title => @email[:creators][thread.creator_id].public_name
+         end
+       end
+       td :valign => "top", :style=> "font-size: 13px;" do
+         a :cstag => "thread_title_thread#{thread.id}", :href => thread_path(:id => thread.to_param), :style => "text-decoration: none;" do
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+#
+# If the patch applies cleanly, the edited hunk will immediately be
+# marked for staging. If it does not apply cleanly, you will be given
+# an opportunity to edit again. If all lines of the hunk are removed,
+# then the edit is aborted and the hunk is left unchanged.

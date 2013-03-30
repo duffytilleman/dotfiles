@@ -1,0 +1,21 @@
+Merge branch 'ageweke/occasional_email' of github.com:Couchsurfing/rails_site into ageweke/occasional_email
+
+Conflicts:
+	bazaar/app/v/views/mailer/thread_notification/occasional_base.rb
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch ageweke/occasional_email
+# Your branch and 'origin/ageweke/occasional_email' have diverged,
+# and have 2 and 1 different commit each, respectively.
+#
+# Changes to be committed:
+#
+#	modified:   app/v/views/mailer/thread_notification/occasional_base.rb
+#

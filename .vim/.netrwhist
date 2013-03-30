@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/duffytilleman/.vim'
+let g:netrw_dirhist_2='/Users/duffytilleman/tempCsDotfiles/.vim/bundle'
+let g:netrw_dirhist_3='/Users/duffytilleman/tempCsDotfiles/.vim/bundle/supertab'
+let g:netrw_dirhist_4='/Users/duffytilleman/tempCsDotfiles/.vim/bundle'
+let g:netrw_dirhist_5='/Users/duffytilleman/csbox'
+let g:netrw_dirhist_6='/Users/duffytilleman/csbox/lib/csbox/system_env'
+let g:netrw_dirhist_7='/Users/duffytilleman/csbox'

@@ -1,0 +1,54 @@
+class Views::Mailer::ThreadNotification::OccasionalBase < Views::Mailer::BaseHtml
+
+  needs :email
+
+  def post(thread,replies)
+    table :width => "100%", :style =>"margin-bottom: 19px;" do
+<<<<<<< HEAD
+      td :style => "padding:1 15px 0 0;", :width=> "60px", :valign => "top" do
+        a :href => thread_path(:id => thread.to_param), :cstag => "user_link_#{thread.id}" do
+          img :src => "http://#{Cs.env.couchsurfing_base_domain_for_rails}#{@email[:creators][thread.creator_id].profile_image.image_url(:extra_large_thumb)}",
+              :alt => @email[:creators][thread.creator_id].public_name,
+              :title => @email[:creators][thread.creator_id].public_name,
+              :style => "width: 60px; height: 60px; border-radius: 30px;"
+=======
+      td :style => "padding:1 15px 0 0;", :width=> "100px", :valign => "top" do
+        a :href => user_path(@email[:creators][thread.creator_id]), :cstag => "user_link_#{thread.id}" do
+          img :src => "#{@email[:creators][thread.creator_id].profile_image.image_url(:extra_large_thumb)}", :alt => @email[:creators][thread.creator_id].public_name, :title => @email[:creators][thread.creator_id].public_name
+>>>>>>> ae6f560bd28fc0025219e813f30d0fde6ae4bd05
+        end
+      end
+      td :valign => "top", :style=> "font-size: 13px;" do
+        a :cstag => "thread_title_thread#{thread.id}", :href => thread_path(:id => thread.to_param), :style => "text-decoration: none;" do
+          h2 truncate(thread.title, :length => 100), :style => "font-size:15px; padding: 0px; margin: 0px; color: #2183c2;"
+        end
+        div :style => "margin-top: 2px;" do
+          span @email[:creators][thread.creator_id].public_name, :style => "color: #8B8B8B;"
+          span(style: 'margin: 0 0.5em;') { rawtext "&mdash;" }
+          span thread.created_at.strftime("%A, %B %d"), :style => "color: #8B8B8B;"
+          span(style: 'margin: 0 0.5em;') { rawtext "&mdash;" }
+          span replies, :style => "color: #8B8B8B;"
+          span rawtext " "
+          span t(:i18n_occasional_email_replies), :style => "color: #8B8B8B;"
+        end
+        p :style => "margin-top: 4px;" do
+          text truncate(thread.comment_text, :length => 250)
+        end
+        table :width => "150px" do
+          tr do
+            td do
+              a :cstag => "more_info_thread#{thread.id}", :href => thread_path(:id => thread.to_param), :style => "text-decoration:none;color:white;display:block;background: #D24A01;text-align:center;padding:5px;font-size:17px;border-radius:5px;margin:5px 0 0 0", :target => "_blank" do
+                text t(:i18n_occasional_email_check_it_out)
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+
+  def tracking_info
+    nil
+  end
+
+end

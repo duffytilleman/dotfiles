@@ -1,0 +1,20 @@
+[core]
+	editor = vim
+[color]
+	ui = true
+[user]
+	name = Duffy Tilleman
+	email = duffy.tilleman@couchsurfing.com
+[pager]
+  diff=less
+[alias]
+  s = status
+  d = diff
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  unstage = reset HEAD
+[merge]
+	tool = vimdiff
+
+[diff]
+  #external = ~/opendiff-git.sh

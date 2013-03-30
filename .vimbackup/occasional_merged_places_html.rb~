@@ -1,0 +1,30 @@
+class Views::Mailer::ThreadNotification::OccasionalMergedPlacesHtml < Views::Mailer::ThreadNotification::OccasionalBase
+
+  def mail_subject
+    p t(:i18n_occasional_merged_email_title)
+  end
+
+  def mail_content
+
+    table :width => "100%" do
+
+      @email[:place_and_thread_info].each do |key, value|
+        thread = value[:thread_starter_comments].first
+        tr do
+          td do
+            h1 value[:place].title, :style => "font-size:19px"
+            post(thread[:thread], thread[:number_of_replies])
+          end
+          td :align => "right", :style => "font-size:9px" do
+            a :cstag => "unsubscribe#{value[:place].id}", :style => "color: 8B8B8B;", :href => Security::Url::secure(email_unsubscribe_url(:email => @email[:user].email, :entity_id => value[:place].id, :entity_type => value[:place].type_integer), true) do
+              text t(:i18n_unsubscribe)
+            end
+          end
+        end
+      end
+
+    end
+
+  end
+
+end

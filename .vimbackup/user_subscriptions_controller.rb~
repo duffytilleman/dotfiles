@@ -1,0 +1,58 @@
+class UserSubscriptionsController < ApplicationController
+
+  def set_entity_subscription
+    if current_user
+      user = User.find(current_user.id)
+
+      entity_id = Entities::EntityId.new({:type => params[:subscribed_on_type], :id => params[:subscribed_on_id]})
+
+      attributes = {
+        :subscription_type  => params[:subscription_type],
+        :send_updates_on_involved_conversations => params[:send_updates_on_involved_conversations]
+      }
+
+      entity_id.resolve_oneoff!
+      place = entity_id.object
+      Analytics::Tracker.current_instance.track_event_serverside(:changed_email_subscription, place.tracking_properties("place").merge(
+        :subscription_type => params[:subscription_type],
+        :send_updates_on_involved_conversations => params[:send_updates_on_involved_conversations]
+      ))
+
+      UserEntitySubscription.create_or_update(user, entity_id, attributes)
+
+      respond_to do |format|
+        format.json do
+          render :json => { :success => true }
+        end
+      end
+    end
+  end
+
+  def email_unsubscribe
+    require_signed_url(true)
+    
+    user = User.find_by_email(params[:email])
+
+    # 2012-12-07 ageweke -- Changing User.find_by_email to work the way it should, and return nil, not raise;
+    # thus, putting this check in here.
+    unless user
+      raise "No user with email #{params[:email]}?"
+    end
+
+    entity_id = Entities::EntityId.new({:type => params[:entity_type].to_i, :id => params[:entity_id].to_i})
+
+    attributes = {
+      :subscription_type  => UserEntitySubscription::SUBSCRIPTION_TYPES[:no_email][:id],
+      :send_updates_on_involved_conversations => 0
+    }
+
+    entity_id.resolve_oneoff!
+    place = entity_id.object
+    Analytics::Tracker.current_instance.track_event_serverside(:unsubscribed_from_email, place.tracking_properties("place"))
+
+    UserEntitySubscription.create_or_update(user, entity_id, attributes)
+
+    redirect_to place_url(place), :success => t(:i18n_unsubscribed_successfully)
+  end
+
+end

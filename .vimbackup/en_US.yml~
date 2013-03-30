@@ -1,0 +1,531 @@
+---
+en_US:
+
+  i18n_site_name: "Couchsurfing"
+
+  i18n_page_title: "%{page_name} - %{site_name}"
+  i18n_default_page_name: "Untitled Page"
+
+  i18n_homepage_tag_line: "Connect with new friends all around the world"
+
+  i18n_months_january: January
+  i18n_months_february: February
+  i18n_months_march: March
+  i18n_months_april: April
+  i18n_months_may: May
+  i18n_months_june: June
+  i18n_months_july: July
+  i18n_months_august: August
+  i18n_months_september: September
+  i18n_months_october: October
+  i18n_months_november: November
+  i18n_months_december: December
+
+  i18n_form_cancel: "Cancel"
+  i18n_form_confirm: "Confirm"
+  i18n_form_select: "Select"
+
+  i18n_time_ago: "ago"
+  i18n_time_ago_sentence: "%{time} ago"
+  i18n_time_just_now: "Just now"
+
+  i18n_user_sex_female: "Female"
+  i18n_user_sex_male: "Male"
+  i18n_user_sex_several_people: "Several people"
+
+  i18n_home_page_title: "Welcome to Couchsurfing!"
+  i18n_home_start: "start"
+  i18n_home_surfing: "Surfing"
+  i18n_home_hosting: "Hosting"
+  i18n_home_from: "from"
+  i18n_home_stayed_with: "Stayed with"
+  i18n_home_it_starts_with_a_host: "It starts with a host"
+  i18n_home_hosts_like_html: "like %{name} &#187;"
+  i18n_home_start_surfing: "Start Surfing"
+  i18n_home_start_hosting: "Start Hosting"
+  i18n_home_why_not_do_a_thing_html: "Why not %{thing}?"
+  i18n_home_it_was_awesome_when_i_did_it: "It was superb when I did it."
+  i18n_home_couchsurfing_description_html: "Hosts get to meet <strong>interesting people</strong>, <br />and surfers get a <strong>local perspective</strong> on the world."
+
+  i18n_navbar_login: "Log in"
+  i18n_navbar_logout: "Log out"
+  i18n_navbar_signup: "Sign up"
+  i18n_navbar_more: "More"
+  i18n_navbar_profile: "Profile"
+  i18n_navbar_account_settings: "Account Settings"
+  i18n_navbar_account: "Account"
+  i18n_navbar_friends: "Friends"
+
+  i18n_navbar_groups: "Groups"
+  i18n_navbar_activities: "Activities"
+  i18n_navbar_classic_dashboard: "Classic Dashboard"
+  i18n_navbar_help: "Contact Us"
+
+  i18n_footer_about: "About"
+  i18n_footer_jobs:  "Jobs"
+  i18n_footer_press: "Press"
+  i18n_footer_help:  "Contact Us"
+  i18n_footer_tos:   "Terms of Use"
+  i18n_footer_privacy:   "Privacy policy"
+  i18n_footer_trust:   "Trust and Safety"
+  i18n_footer_videos: "Videos"
+  i18n_footer_trust_and_safety: "Trust & Safety"
+  i18n_footer_feedback: "Feedback"
+  i18n_footer_copyright_html: "&copy; 1999 - %{current_year}&nbsp;&nbsp;&nbsp;&nbsp;Couchsurfing International, Inc. A socially responsible, Certified B Corporation"
+
+  i18n_dashboard_page_name: "Dashboard"
+  i18n_dashboard_destinations: "You are going to"
+  i18n_dashboard_add_destination: "Add a place"
+  i18n_dashboard_more_destinations: "More places you are going"
+  i18n_dashboard_wishlist: "Your Wishlist"
+  i18n_dashboard_share_wishlist: "Share your wishlist"
+  i18n_dashboard_more_wishlist: "More items on your wishlist"
+  i18n_dashboard_currently_in_your_city_html: "Currently in %{city}"
+
+  i18n_activity_map_title: "Activity Map"
+  i18n_empty_activity_map_title: "Map"
+  i18n_population_map_title: "Population Map"
+  i18n_create_event: "Create Event"
+  i18n_add_activity: "Add an Activity"
+
+  i18n_events: "Events"
+  i18n_events_add_new: "Add a new event"
+  i18n_events_title_placeholder: "Event Title"
+  i18n_events_location_placeholder: "Where is this happening?"
+  i18n_events_starts: "Starts"
+  i18n_events_ends: "Ends"
+  i18n_events_public_button: "Public event"
+  i18n_events_private_button: "Invite-only event"
+  i18n_events_post_now_button: "Post now"
+  i18n_events_add_details_button: "Add Details"
+  i18n_events_description_placeholder: "Optional description : any cost or purchase, directions, etc."
+  i18n_events_limit_guests_checkbox: "Limit number of guests"
+  i18n_events_go_back_button: "Go back"
+
+  i18n_conversations_html: "Conversations in %{place}"
+  i18n_conversations_only: "Conversations"
+  i18n_conversations_matching_html: "Conversations matching %{query} in %{place}"
+  i18n_conversation_tos_line_1: "Before posting, please agree to these conversation guidelines."
+  i18n_conversation_tos_line_2: "<b>Talk about this place and things happening here.</b> If you want to discuss other topics, please check out all the other %{link}."
+  i18n_conversation_tos_line_2_groups_link: "Couchsurfing Groups"
+  i18n_conversation_tos_line_3: "<b>Be respectful and keep it civil.</b> Please engage with people as you would in real life, in a way that makes them feel welcome."
+  i18n_conversation_tos_line_4: "<b>Please help keep your Place Page interesting</b> by flagging spam or any posts that are breaking the %{link}."
+  i18n_conversation_tos_line_4_guidelines_link: "Conversation Guidelines"
+  i18n_conversation_tos_line_5: "<b>Make this a better experience</b> by posting comments related to the user experience or bugs to the %{link}."
+  i18n_conversation_tos_line_5_forum_link: "Couchsurfing Feedback Forum"
+  i18n_tos_agree: "Yes, I agree"
+  i18n_tos_do_not_agree: "No, I do not agree"
+
+  i18n_all_conversations: "All Conversations"
+  i18n_conversations_start: "Start a conversation"
+  i18n_conversations_start_new: "Start a New Conversation"
+  i18n_conversations_write_a_reply: "Write a reply"
+  i18n_conversations_post_reply: "Post Reply"
+  i18n_conversations_more: "More conversations"
+  i18n_conversations_search: "Search conversations"
+  i18n_conversations_description: "Conversation"
+  i18n_conversations_reply: "Reply"
+  i18n_conversations_help_text: "Please post with care"
+  i18n_conversations_by: "by"
+  i18n_conversations_create_action: "Start Conversation"
+  i18n_conversations_save_edits_action: "Save Edits"
+  i18n_conversations_people: "People in this conversation"
+  i18n_conversations_reply_short: "Reply"
+  i18n_conversations_read_replies: "Read Replies"
+  i18n_conversations_show_replies_html:
+    one: "Show reply"
+    other: "Show replies"
+  i18n_conversations_private_label: "Hide from logged out users and search engines:"
+  i18n_conversations_posts:
+    one: "%{count} post"
+    other: "%{count} posts"
+  i18n_conversations_people:
+    one: "%{count} person"
+    other: "%{count} people"
+  i18n_conversations_show_more_replies: "Show %{n} more"
+  i18n_conversation_looking_for_place_to_stay: "Looking for a place to stay?"
+  i18n_conversation_post_an_open_couch_request: "Post an open request."
+  i18n_conversation_search_for_hosts: "Search for Hosts"
+  i18n_conversations_publicly_viewable: "Publicly viewable"
+  i18n_conversations_viewable_logged_in_only: "Visible to logged-in members only"
+  i18n_conversation_share_on_facebook: "Share on Facebook"
+  i18n_conversation_share_on_twitter: "Share on Twitter"
+  i18n_conversation_share_get_link: "Get link"
+  i18n_conversation_flag: "Flag This Post"
+  i18n_conversation_edit_post: "Edit This Post"
+  i18n_conversation_delete_post: "Delete This Post"
+
+  i18n_dashboard_surf_or_host_html: "%{surf} %{or} %{host}"
+  i18n_dashboard_surf_link: "Surf"
+  i18n_dashboard_or: "or"
+  i18n_dashboard_host_link: "Host"
+  i18n_dashboard_nearby_locals: "Nearby Locals"
+  i18n_dashboard_nearby_surfers: "Nearby Surfers"
+  i18n_dashboard_nearby_ocrs: "Travelers Who Need a Place to Stay"
+  i18n_dashboard_more_nearby_ocrs: "More Travelers"
+
+  i18n_default_search_placeholder: "Search"
+  i18n_search_where_to: "Where would you like to go?"
+  i18n_search_places: "Search Places"
+
+  i18n_mark_place_wants_to_go: "I want to go"
+  i18n_mark_place_done: "I've been"
+  i18n_mark_place_going: "I'm going"
+
+  i18n_mark_thing_wants_to_go: "I want to do this"
+  i18n_mark_thing_done: "I've done this"
+
+  i18n_mark_entity_done: "done it"
+  i18n_mark_entity_wants_to_go: "want to"
+
+  i18n_people_search_alert: "Sorry, no exact match was found for that name"
+  i18n_place_search_alert_boring_html: "You searched for %{boring_location} and we're showing you %{interesting_location} instead. Should we change this?"
+  i18n_place_search_alert_button: "Let us know"
+
+  i18n_place_surf_find_host: "Find a host for"
+  i18n_place_surf_surfer: "surfer(s)"
+  i18n_place_surf_surf: "Surf"
+  i18n_place_surf_any: "Any"
+  i18n_place_surf_from_n_hosts_in_place: "From the %{n} hosts in %{place_or_geolocation} Area"
+  i18n_place_surf_from_hosts_in_place: "From the hosts in %{place_or_geolocation} Area"
+  i18n_place_surf_from_one_host_in_place: "From the 1 host in %{place_or_geolocation} Area"
+
+  i18n_place_nearby_things_to_do: "Explore %{place}"
+  i18n_place_add_thing_to_do: "Add something"
+  i18n_place_more_things_to_do: "More things to explore"
+  i18n_place_following: "Following"
+  i18n_place_follow: "Follow"
+  i18n_place_including: "Including: "
+  i18n_searched_for: "You searched for "
+  i18n_place_surrounding_area: "and Surrounding Area"
+
+  i18n_place_title: "%{place_title} Area"
+  i18n_place_sidebar_hosts: "People Who Can Host"
+  i18n_place_sidebar_locals: "Locals Who Can Hang Out"
+  i18n_place_sidebar_surfers: "Nearby Travelers"
+  i18n_place_sidebar_want_to_go: "People Who Want to Go"
+  i18n_place_sidebar_see_more: "See more"
+  i18n_place_sidebar_travelers: "Travelers"
+  i18n_place_sidebar_locals: "Locals"
+  i18n_place_locals_with_a_place_to_stay: "Surf with these Locals"
+  i18n_place_locals_with_a_place_to_stay_count: "%{count} more »"
+  i18n_place_locals_with_a_place_to_stay_no_count: "more »"
+
+  i18n_place_travelers_looking_for_a_place_to_stay: "Host these Travelers"
+  i18n_place_travelers_looking_for_a_place_to_stay_count: "%{count} more »"
+  i18n_place_travelers_looking_for_a_place_to_stay_no_count: "more »"
+
+  i18n_place_nearby_activities_count: "%{count} more »"
+  i18n_place_no_locals: "No locals found within %{name}"
+  i18n_place_no_open_couch_requests: "No open couch requests found within %{name}"
+  i18n_place_reference_count:
+    one: "1 reference"
+    other: "%{count} references"
+  i18n_place_joined_date: "Joined "
+
+  i18n_place_convesation_guidelines: "Show Conversation Guidelines"
+  i18n_place_community_information: "Community Details"
+  i18n_place_community_information_show_all: "Show all"
+  i18n_place_community_information_show_less: "Show less"
+
+  i18n_place_related_groups: 'Related Groups'
+  i18n_place_sub_groups_show_all: "All Groups"
+  i18n_place_sub_groups_show_less: "Show less"
+
+  i18n_geolocation_popular_areas: "Popular areas in"
+  i18n_geolocation_cities_in: "Cities with surfers in"
+  i18n_geolocation_states_in: "States in"
+  i18n_geolocation_population_map: "Population Map"
+
+
+  i18n_thing_sidebar_nearby_people: "People near here"
+  i18n_thing_sidebar_people_already_done: "People who have done this"
+  i18n_thing_sidebar_people_want_to_do: "People who want to do this"
+
+  i18n_more_nearby_hosts: "More Hosts"
+  i18n_more_nearby_locals: "More Locals"
+  i18n_more_nearby_surfers: "More Travelers"
+  i18n_more_want_to_go: "More People Who Want to Go"
+  i18n_more_nearby_people: "More people near here"
+  i18n_more_people_already_done: "More people who have been"
+  i18n_more_people_want_to_do: "More people who are going"
+
+  i18n_connect_with_facebook: "Connect with Facebook"
+
+  i18n_login_page_title: "Log in"
+  i18n_login_button: "Log in"
+  i18n_login_with_facebook: "Log in with Facebook"
+  i18n_login_forgot_password: "Forgot your password?"
+  i18n_login_email_address_field: "email or username"
+  i18n_login_password_field: "password"
+
+  i18n_already_logged_in: "You're already logged in"
+
+  i18n_signup_with_facebook: "Sign up with Facebook"
+  i18n_signup_start_with_email: "Get started with your email address"
+  i18n_signup_email_already_in_use: "Email address already in use"
+  i18n_signup_system_error: "Sorry, something went wrong.  Please try again in a second."
+  i18n_signup_not_a_member: "Not a member?"
+  i18n_signup_already_member: "Already a member?"
+  i18n_signup_page_title: "Sign Up"
+  i18n_signup_first_name: "First name"
+  i18n_signup_last_name: "Last name"
+  i18n_signup_email: "Email"
+  i18n_signup_password: "Password"
+  i18n_signup_sex: "Sex"
+  i18n_signup_birthday: "When were you born?"
+  i18n_signup_birthday_month: "Month"
+  i18n_signup_birthday_day: "Day"
+  i18n_signup_birthday_year: "Year"
+  i18n_signup_city: "City where you live"
+  i18n_signup_agreement_html: "By signing up you agree to our %{terms_of_use} and %{privacy_policy}"
+  i18n_validation_live_location_description_no_match: "No location matched '%{match_string}'"
+  i18n_validation_live_location_description_no_value: "You must enter the name of the city where you live"
+  i18n_signup_terms_of_use: "terms of use"
+  i18n_signup_privacy_policy: "privacy policy"
+  i18n_signup_button: "Sign Up"
+  i18n_signup_error_birthdate: "You must be 18 years old to use CouchSurfing."
+  i18n_signup_error_sex: "Please select your sex."
+  i18n_signup_almost_done: "Almost Done"
+  i18n_geolocation_must_be_city: "%{match_string} is not a city."
+  i18n_signup_couldnt_get_everything_from_facebook: "We couldn't get everything from Facebook. Please fill in the missing information."
+
+  i18n_validation_geo_no_match: "No location matched '%{match_string}'"
+
+  i18n_ttd_form_page_title: "Add something to do"
+  i18n_ttd_form_title: "Title of Thing To Do"
+  i18n_ttd_form_location: "Location"
+  i18n_ttd_form_location_placeholder: "Search address"
+  i18n_ttd_form_photos: "Photo(s)"
+  i18n_ttd_form_description: "Description"
+  i18n_ttd_form_action_cancel: "Cancel"
+  i18n_ttd_form_action_submit: "Create Thing To Do"
+  i18n_ttd_form_unexpected_error: "Something went wrong! Please try again"
+  i18n_ttd_form_success: "%{title} was successfully created"
+  i18n_ttd_view_list: "View List"
+  i18n_profile_successfully_created: "Profile was successfully created"
+
+  i18n_ttd_this_needs_a_photo: "This needs a photo!"
+  i18n_ttd_upload_one_of_your_own: "Upload one of your own:"
+  i18n_ttd_photo_upload_success: "Your image has been successfully uploaded"
+  i18n_ttd_upload_photo_button: "Upload"
+
+  i18n_things_to_do: "Things to Do"
+  i18n_ttd_add: "Add Something To Do"
+  i18n_things_to_do_more: "More things to do"
+
+  i18n_threads_people_in_this_conversation: "People in this conversation"
+  i18n_threads_confirm_remove_title: "Remove?"
+  i18n_threads_confirm_remove_description: "Please confirm you want to delete this comment"
+  i18n_threads_add_to_community_details: "Add to Community Details"
+
+  i18n_invalid_username_password: "Invalid username/password"
+  i18n_technical_issues_login_with_email_address: "Due to technical issues, please log in using your email address instead of your username at this time."
+  i18n_please_fill_both_fields: "Please fill in both fields"
+  i18n_we_had_to_change_username_please_reset_it_html: "Unfortunately we have had to change your username to a temporary one. Please set a new one <a href='%{change_username_path}'>here</a>"
+
+  i18n_no_things_to_do_in_list: "There is nothing here yet"
+  i18n_add_thing_incentive: "Be the first one to add a thing to do here!"
+
+  i18n_lost_password_page_title: "Forgot your password?"
+  i18n_lost_password_title: "Forgot your password?"
+  i18n_lost_password_subtitle: "Get a link to reset it."
+  i18n_lost_password_button: "Send me a link"
+
+  i18n_lost_password_link_page_title: "Reset password link"
+  i18n_lost_password_link_title: "A link to reset your password has been sent."
+  i18n_lost_password_link_subtitle: "Please check your email."
+
+  i18n_reset_password_form_page_title: "Reset your password"
+  i18n_reset_password_form_title: "Change your password"
+  i18n_reset_password_form_new_password: "New password"
+  i18n_reset_password_form_confirm_password: "Confirm password"
+  i18n_reset_password_form_button: "Change password"
+  i18n_reset_password_email_failure: "Sorry, something went wrong.  Please try again."
+
+  i18n_auth_controller_email_not_set:    "Email not specified."
+  i18n_auth_controller_email_not_found:  "This email could not be found in our system."
+  i18n_auth_controller_password_not_set: "Please set a password"
+  i18n_auth_controller_password_reset:   "Your password was successfuly updated"
+  i18n_auth_controller_invalid_token:    "This reset password link is invalid"
+  i18n_auth_controller_expired_token:    "This reset password link is no longer valid"
+  i18n_auth_controller_token_not_set:    "Token not set"
+
+  i18n_login_to_see_hidden_comment: "This comment has been hidden by its author. Please log in or register to see it."
+
+  i18n_more: "(more...)"
+  i18n_less: "(less...)"
+
+  i18n_group_migration_title: "Migration in Progress"
+  i18n_group_migration_heading: "Migration in Progress"
+  i18n_group_migration_description: "This group is moving to a new platform and will be available again soon."
+  i18n_group_migration_image: "A migratory couch-butterfly"
+
+  i18n_routing_error_title: "404: Not Found"
+  i18n_routing_error_heading: "404: Not Found"
+  i18n_routing_error_body_html: "We even checked under the couch."
+  i18n_routing_error_image: "We found a dust bunny..."
+
+  i18n_generic_error_title: "Something Went Wrong"
+  i18n_generic_error_heading: "Something Went Wrong"
+  i18n_generic_error_body: "We just got sent a notification about it."
+  i18n_generic_error_image: "What happened!?"
+
+  i18n_entity_subscription_title: "Email Digests"
+  i18n_entity_subscription_call: "You will get notifications related to this place periodically"
+  i18n_entity_subscription_edit: "Edit your subscription"
+  i18n_entity_subscription_edit_info: "How much email would you like to receive related to this place?"
+  i18n_entity_subscription_no_email: "No Email Digests"
+  i18n_entity_subscription_occasional_email: "Occasional Email Digests"
+  i18n_entity_subscription_email: "Instant Updates"
+  i18n_entity_subscription_email_note: "(Get messages as they are posted)"
+  i18n_entity_subscription_updates_on_involved_conversations: "Let me know when someone responds to a conversation I'm in"
+
+  i18n_entity_subscription_change: "Change Subscription"
+
+  i18n_report_commercial_or_spam: "Commercial Content and Spam"
+  i18n_report_dating_or_inappropriate_sexual_content: "Dating/Inappropriate Sexual Content"
+  i18n_report_abusive_or_illegal_content: "Abusive or Illegal Content"
+  i18n_report_shows_my_contact_or_protected_info: "Shows my Contact/Protected Information"
+  i18n_report_content_header: "Reason for flagging"
+  i18n_report_content_flag_button: "Flag"
+
+  i18n_flag_as_couch_request: "A Couch Request"
+  i18n_flag_as_website_feedback: "Website Feedback"
+  i18n_flag_as_off_topic: "Off-Topic"
+
+  i18n_occasional_email_check_it_out: "Check it out"
+  i18n_occasional_email_post_title:
+    one: "%{username} posted on %{date} and got %{count} reply"
+    other: "%{username} posted on %{date} and got %{count} replies"
+  i18n_occasional_merged_email_title: "Top posts for the places you follow"
+  i18n_occasional_email_title: "Top posts from %{name}"
+  i18n_occasional_email_unsubscribe: "Unsubscribe from %{name} notifications"
+  i18n_occasional_email_read_more: "more"
+  i18n_unsubscribed_successfully: "You have successfully unsubscribed"
+  i18n_unsubscribe: "Unsubscribe"
+
+  i18n_email_flag_base_greetings: "Hello %{name},"
+  i18n_email_flag_base_hidden: "We've hidden the following post from the %{title} page:"
+  i18n_email_flag_base_mistake: "If you think your post was flagged in error, please contact our safety team by visiting this link:"
+  i18n_email_flag_base_title: "Your post on the %{title} page"
+  i18n_email_flag_offtopic_line_1: "Your post was flagged by one or more members as off-topic. The %{title} page is reserved for discussions related to %{title}. If you want to have a discussion that is not about a place, please visit our General Discussion forums: %{url}"
+  i18n_email_flag_offtopic_line_2: "If you’re looking for a group of other Couchsurfers to talk to, check out the Groups: %{url}"
+  i18n_email_flag_site_feedback_line_1: "Your post was flagged by one or more members as feedback on the website. The %{title} page is reserved for discussions related to %{title}. If you want to give us feedback about the website itself, please visit the Feedback Forums that were created specifically for this purpose :"
+  i18n_email_flag_is_couchrequest_create_ocr: "Create a open couchrequest"
+  i18n_email_flag_is_couchrequest_find_local: "Find a local to host you"
+  i18n_email_flag_is_couchrequest_line_1: "Your post was flagged by one or more members as a couch request. You'll have a much better chance of finding a host if you create an open couch request or send a couch request to one of the hosts in %{title}"
+  i18n_email_flag_is_couchrequest_line_2: "You can also try posting an open couch request in %{title}."
+
+  i18n_email_active_title: "[%{commented_on_title}] \"%{thread_title}\""
+
+  i18n_lang_en_US: "English"
+  i18n_lang_fr_FR: "Français"
+  i18n_lang_de_DE: "Deutsch"
+  i18n_lang_es_ES: "Español"
+  i18n_lang_it_IT: "Italiano"
+  i18n_lang_ja_JP: "日本語"
+  i18n_lang_pt_BR: "Português brasileiro"
+  i18n_lang_zh_CN: "中文 (简化字)"
+  i18n_lang_ru_RU: "Русский"
+  i18n_lang_ko_KR: "한국어"
+  i18n_lang_pl_PL: "Polski"
+  i18n_lang_tr_TR: "Türkçe"
+
+  i18n_location_not_found: "This location was not found"
+  i18n_location_try_again: "Something went wrong. Please try again later"
+
+  i18n_conversations_replies:
+      one: "%{count} reply"
+      other: "%{count} replies"
+  i18n_conversations_title: "Title"
+  i18n_conversations_created_by: "Created by"
+  i18n_conversations_last_updated: "Last updated"
+  i18n_conversations_prev: "Prev"
+  i18n_conversations_next: "Next"
+  i18n_conversations_page_title: "Conversations in %{title}"
+  i18n_conversations_new_conversation: "New Conversation"
+  i18n_conversations_see_all: "See all %{count} »"
+  i18n_conversations_search: "Search Conversations"
+  datetime:
+    distance_in_words:
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one: "less than 1 second"
+        other: "less than %{count} seconds"
+      x_seconds:
+        one: "1 second"
+        other: "%{count} seconds"
+      less_than_x_minutes:
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      about_x_hours:
+        one: "about 1 hour"
+        other: "about %{count} hours"
+      x_days:
+        one: "1 day"
+        other: "%{count} days"
+      about_x_months:
+        one: "about 1 month"
+        other: "about %{count} months"
+      x_months:
+        one: "1 month"
+        other: "%{count} months"
+      about_x_years:
+        one: "about 1 year"
+        other: "about %{count} years"
+      over_x_years:
+        one: "over 1 year"
+        other: "over %{count} years"
+      almost_x_years:
+        one: "almost 1 year"
+        other: "almost %{count} years"
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+
