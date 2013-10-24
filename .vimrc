@@ -158,4 +158,4 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 let maplocalleader=","
 
-noremap <F5> :!sudo apache2ctl graceful<CR>
+noremap g <C-W>
