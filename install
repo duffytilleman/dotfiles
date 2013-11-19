@@ -1,0 +1,11 @@
+#! /usr/bin/env ruby
+require "fileutils"
+
+FileUtils.cd(File.dirname(__FILE__)) do
+  files = Dir.glob(".*") - %w{. .. .git .gitignore}
+  home = ENV["HOME"]
+  print "Copy #{files.join(" ")} into #{home} (y/n)? "
+  if gets.chomp.downcase == "y"
+    FileUtils.cp_r files, home
+  end
+end
