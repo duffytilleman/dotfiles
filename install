@@ -6,6 +6,7 @@ FileUtils.cd(File.dirname(__FILE__)) do
   home = ENV["HOME"]
   print "Copy #{files.join(" ")} into #{home} (y/n)? "
   if gets.chomp.downcase == "y"
+    FileUtils.cd(home){ FileUtils.rm_rf files }
     FileUtils.cp_r files, home
   end
 end
