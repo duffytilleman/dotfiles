@@ -158,4 +158,8 @@ au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 let maplocalleader=","
 
-noremap g <C-W>
+noremap gh <C-W>h
+noremap gj <C-W>j
+noremap gk <C-W>k
+noremap gl <C-W>l
+noremap g= <C-W>=
