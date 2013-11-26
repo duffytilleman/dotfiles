@@ -122,4 +122,4 @@ export EDITOR=vi
 
 stty -ixon #disable ctrl+s locking
 
-
+alias gitx=/Applications/GitX.app/Contents/Resources/gitx
