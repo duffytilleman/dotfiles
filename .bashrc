@@ -123,3 +123,6 @@ export EDITOR=vi
 stty -ixon #disable ctrl+s locking
 
 alias gitx=/Applications/GitX.app/Contents/Resources/gitx
+function npm-homepage {
+  npm view $1 homepage | head -n 1 | xargs open
+}
