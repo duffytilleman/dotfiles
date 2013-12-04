@@ -5,6 +5,9 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# source everything from .bashrc.d
+for f in $(dirname $BASH_SOURCE)/.bashrc.d/*; do source $f; done
+
 #if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /lib/terminfo/x/xterm-256color ]; then
 #  export TERM='xterm-256color'
 #else
