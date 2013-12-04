@@ -123,6 +123,7 @@ if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
 fi
 if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
   source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+  source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
