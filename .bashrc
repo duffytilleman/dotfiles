@@ -135,3 +135,5 @@ function npm-homepage {
   echo "Homepage URL: $URL"
   open $URL
 }
+
+alias nr=repl.history
