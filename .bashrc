@@ -137,3 +137,7 @@ function npm-homepage {
 }
 
 alias nr=repl.history
+
+function kill-interface {
+  lsof -F p -i $1 | sed s/p// | xargs kill
+}
