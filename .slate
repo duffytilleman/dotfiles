@@ -1,0 +1,22 @@
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Aliases
+alias third screenSizeX/3;screenSizeY
+alias twoThird 2*screenSizeX/3;screenSizeY
+alias hyper cmd;ctrl;alt
+
+# Resize thirds
+bind j:${hyper}      move   screenOriginX;screenOriginY  ${third}
+bind k:${hyper}      move   screenOriginX+screenSizeX/3;screenOriginY   ${third}
+bind l:${hyper}      move   screenOriginX+2*screenSizeX/3;screenOriginY ${third}
+bind u:${hyper}      move   screenOriginX;screenOriginY  ${twoThird}
+bind o:${hyper}      move   screenOriginX+screenSizeX/3;screenOriginY  ${twoThird}
+bind space:${hyper}  corner top-left          resize:screenSizeX;screenSizeY
+
+# Throw
+bind right:${hyper}  throw right resize
+bind left:${hyper}   throw left  resize
+bind up:${hyper}     throw up    resize
+bind down:${hyper}   throw down  resize
