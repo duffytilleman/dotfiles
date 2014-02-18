@@ -3,3 +3,4 @@
 .bash_history
 .viminfo
 .vim/.netrwhist
+.ipython/profile_default/history.sqlite
