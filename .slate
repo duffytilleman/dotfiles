@@ -20,3 +20,5 @@ bind right:${hyper}  throw right resize
 bind left:${hyper}   throw left  resize
 bind up:${hyper}     throw up    resize
 bind down:${hyper}   throw down  resize
+
+bind s:${hyper} relaunch
