@@ -152,7 +152,8 @@ command -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
-let maplocalleader=","
+let mapleader=","
+let maplocalleader="\\"
 
 noremap gh <C-W>h
 noremap gj <C-W>j
