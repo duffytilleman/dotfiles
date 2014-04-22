@@ -15,6 +15,10 @@ bind u:${hyper}      move   screenOriginX;screenOriginY  ${twoThird}
 bind o:${hyper}      move   screenOriginX+screenSizeX/3;screenOriginY  ${twoThird}
 bind space:${hyper}  corner top-left          resize:screenSizeX;screenSizeY
 
+# Resize halves
+bind [:${hyper}      move   screenOriginX;screenOriginY  screenSizeX/2;screenSizeY
+bind ]:${hyper}      move   screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+
 # Throw
 bind right:${hyper}  throw right resize
 bind left:${hyper}   throw left  resize
