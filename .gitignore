@@ -4,3 +4,4 @@
 .viminfo
 .vim/.netrwhist
 .ipython/profile_default/history.sqlite
+.ipython/*/security
