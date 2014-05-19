@@ -20,3 +20,6 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# added by Anaconda 1.9.1 installer
+export PATH="/Users/duffy/anaconda/bin:$PATH"
