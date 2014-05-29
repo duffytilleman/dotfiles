@@ -164,3 +164,11 @@ noremap g\| <C-W>\|
 
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
+
+" :W to save file, making directories as needed
+function! WriteCreatingDirs()
+    execute ':silent !mkdir -p %:h'
+    write
+    redraw!
+endfunction
+command W call WriteCreatingDirs()
