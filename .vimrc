@@ -39,7 +39,7 @@ set colorcolumn=100
 
 
 " Keep swap files in one of these 
-set directory=~/tmp,/var/tmp,/tmp,.
+set directory=~/tmp,~/.tmp,/var/tmp,/tmp,.
 
 " Let's see some useful info in the status line
 set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
