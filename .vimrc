@@ -172,3 +172,11 @@ function! WriteCreatingDirs()
     redraw!
 endfunction
 command W call WriteCreatingDirs()
+
+" remap omnicomplete
+inoremap <leader>, <C-x><C-o>
+
+" Open quickfix window automatically after :grep and :Ggrep
+autocmd QuickFixCmdPost *grep* cwindow
+
+nmap <leader>g :silent Ggrep<space>
