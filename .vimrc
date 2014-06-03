@@ -181,3 +181,6 @@ inoremap <leader>, <C-x><C-o>
 autocmd QuickFixCmdPost *grep* cwindow
 
 nmap <leader>g :silent Ggrep<space>
+
+" type ,t in normal mode to close open html tags
+au FileType html inoremap <buffer> <leader>t </<C-x><C-o>
