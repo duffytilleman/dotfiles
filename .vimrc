@@ -84,7 +84,8 @@ inoremap <C-f> function () {}<Left>
 set mouse=vin
 
 " Create an empty line underneath without moving the cursor
-noremap <CR> mlo<Esc>`l
+" noremap <CR> mlo<Esc>`l
+noremap <expr> <CR> (&buftype is# "quickfix" ? "<CR>" : "mlo<Esc>`l")
 
 " Indent with spacebar
 noremap <space> >>
