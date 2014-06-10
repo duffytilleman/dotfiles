@@ -1,0 +1,21 @@
+[user]
+	email = duffy.tilleman@gmail.com
+	name = Duffy Tilleman
+[color]
+	ui = true
+[alias]
+	s = status
+	d = diff
+	dc = diff --cached
+  unstage = reset HEAD
+	logp = log --pretty=fullline
+[core]
+	editor = /usr/bin/vim
+[push]
+	default = simple
+[pretty]
+  fullline = tformat:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+[merge]
+	tool = vimdiff
+[heroku]
+	account = duffy
