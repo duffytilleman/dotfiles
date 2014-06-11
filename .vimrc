@@ -184,3 +184,14 @@ nnoremap <leader>g :silent Ggrep<space>
 
 " type ,t in normal mode to close open html tags
 au FileType html inoremap <buffer> <leader>t </<C-x><C-o>
+
+" swap words with ,s on first word then ,t on second word
+noremap <leader>s "sdiwms
+noremap <leader>t "tdiw"sp`s"tP
+
+" <c-u> in normal mode capitalizes current word
+inoremap <c-u> <esc>muviwU`ua
+
+" quickly edit vimrc
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>:echo "Sourced .vimrc"<cr>
