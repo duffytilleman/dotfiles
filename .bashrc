@@ -62,3 +62,5 @@ function kill-interface {
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export PYTHONSTARTUP=~/.pythonrc
+
+export TERM="xterm-256color"
