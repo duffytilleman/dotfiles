@@ -145,11 +145,11 @@ endif
       
 " V buffer split
 " Vertical Split Buffer Function
-function VerticalSplitBuffer(buffer)
+function! VerticalSplitBuffer(buffer)
     execute "vert belowright sb" a:buffer 
 endfunction
 " Vertical Split Buffer Mapping
-command -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
+command! -nargs=1 Vbuffer call VerticalSplitBuffer(<f-args>)
 
 au FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
@@ -172,7 +172,7 @@ function! WriteCreatingDirs()
     write
     redraw!
 endfunction
-command W call WriteCreatingDirs()
+command! W call WriteCreatingDirs()
 
 " remap omnicomplete
 inoremap <leader>, <C-x><C-o>
