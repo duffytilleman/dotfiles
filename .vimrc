@@ -180,7 +180,7 @@ inoremap <leader>, <C-x><C-o>
 " Open quickfix window automatically after :grep and :Ggrep
 autocmd QuickFixCmdPost *grep* cwindow redraw!
 
-nmap <leader>g :silent Ggrep<space>
+nnoremap <leader>g :silent Ggrep<space>
 
 " type ,t in normal mode to close open html tags
 au FileType html inoremap <buffer> <leader>t </<C-x><C-o>
