@@ -195,3 +195,7 @@ inoremap <c-u> <esc>muviwU`ua
 " quickly edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>:echo "Sourced .vimrc"<cr>
+
+vnoremap <c-q> <esc>`<i'<esc>`>a'<esc>
+
+au FileType python iabbrev <buffer> ii import ipdb; ipdb.set_trace()
