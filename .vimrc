@@ -178,7 +178,7 @@ command! W call WriteCreatingDirs()
 inoremap <leader>, <C-x><C-o>
 
 " Open quickfix window automatically after :grep and :Ggrep
-autocmd QuickFixCmdPost *grep* cwindow redraw!
+autocmd QuickFixCmdPost *grep* cwindow
 
 nnoremap <leader>g :silent Ggrep<space>
 
