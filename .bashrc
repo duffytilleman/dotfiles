@@ -58,9 +58,6 @@ function kill-interface {
   lsof -F p -i $1 | sed s/p// | xargs kill
 }
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 export PYTHONSTARTUP=~/.pythonrc
 
 export TERM="xterm-256color"

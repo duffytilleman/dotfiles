@@ -21,5 +21,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
 # added by Anaconda 1.9.1 installer
 export PATH="/Users/duffy/anaconda/bin:$PATH"
