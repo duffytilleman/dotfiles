@@ -25,4 +25,4 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # added by Anaconda 1.9.1 installer
-export PATH="/Users/duffy/anaconda/bin:$PATH"
+# export PATH="/Users/duffy/anaconda/bin:$PATH"
