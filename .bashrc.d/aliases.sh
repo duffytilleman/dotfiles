@@ -9,3 +9,5 @@ alias la='ls -A'
 alias ll='ls -alF'
 alias hr='heroku run'
 alias hrs='heroku run --remote staging'
+
+function psgrep() { ps aux | grep -v grep | grep "$@" -i --color=auto; }
