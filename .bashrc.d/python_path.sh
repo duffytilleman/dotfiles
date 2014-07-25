@@ -1,2 +1,2 @@
 export PLETHORA_HOME=$HOME/Development/plethora
-export PYTHONPATH=$PLETHORA_HOME/api_client
+export PYTHONPATH=$PLETHORA_HOME:$PLETHORA_HOME/machine-automation/python
