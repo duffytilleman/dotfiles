@@ -89,6 +89,8 @@ noremap <expr> <CR> (&buftype is# "quickfix" ? "<CR>" : "mlo<Esc>`l")
 
 " Indent with spacebar
 noremap <space> >>
+noremap <Tab> >>
+noremap <S-Tab> <<
 
 " Move easily between ^ and $
 noremap <C-h> ^
