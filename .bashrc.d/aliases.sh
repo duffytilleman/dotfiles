@@ -10,4 +10,12 @@ alias ll='ls -alF'
 alias hr='heroku run'
 alias hrs='heroku run --remote staging'
 
+# Platform specific aliases
+platform=`uname`
+if [[ $platform == 'Linux' ]]; then
+  alias ls='ls --color'
+elif [[ $platform == 'Darwin' ]]; then
+  alias ls='ls -G'
+fi
+
 function psgrep() { ps aux | grep -v grep | grep "$@" -i --color=auto; }
