@@ -66,3 +66,7 @@ export PLETHORA_GUID=c413115f97642651bb35a22c9d7e0dac
 export PLETHORA_API_KEY=jlLm7I2XsQ2qMpoRSeIzdW8xBVmwXeqVXj8cA9dehwO/UYOkXmSZrFP4J8BSEv6BeH4FbFBPju60IXfZQ0bFIQ== 
 export PLETHORA_HOST=http://api.plethora.dev:3000 
 export DAEMON_PID_DIR=$HOME/.daemons/
+
+if ! ssh-add -L grep "$HOME/.ssh/id_rsa" > /dev/null; then
+  ssh-add $HOME/.ssh/id_rsa > /dev/null
+fi
