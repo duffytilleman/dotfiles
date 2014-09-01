@@ -11,6 +11,7 @@
 	logp = log --pretty=fullline
 [core]
 	editor = /usr/bin/vim
+	autocrlf = false
 [push]
 	default = simple
 [pretty]
