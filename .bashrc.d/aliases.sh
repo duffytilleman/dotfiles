@@ -10,6 +10,9 @@ alias ll='ls -alF'
 alias hr='heroku run'
 alias hrs='heroku run --remote staging'
 
+alias heorku=heroku
+alias h=heroku
+
 # Platform specific aliases
 platform=`uname`
 if [[ $platform == 'Linux' ]]; then
