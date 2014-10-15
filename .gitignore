@@ -5,3 +5,4 @@
 .vim/undo/*
 .ipython/profile_default/history.sqlite
 .ipython/*/security
+.tmux/resurrect
