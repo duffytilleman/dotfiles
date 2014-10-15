@@ -2,5 +2,6 @@
 .bash_history
 .viminfo
 .vim/.netrwhist
+.vim/undo/*
 .ipython/profile_default/history.sqlite
 .ipython/*/security

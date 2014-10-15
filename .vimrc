@@ -207,3 +207,6 @@ let g:syntastic_aggregate_errors = 1
 
 let g:ctrlp_user_command = ['.git', 'cd %s && cat <(git ls-files) <(git ls-files --others --exclude-standard)']
 " let g:ctrlp_user_command = ['.git', 'cd %s && cat git ls-files git ls-files --others --exclude-standard']
+
+set undofile
+set undodir=~/.vim/undo/
