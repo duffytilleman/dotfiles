@@ -200,3 +200,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>:echo "Sourced .vimrc"<cr>
 vnoremap <c-q> <esc>`<i'<esc>`>a'<esc>
 
 au FileType python iabbrev <buffer> ii import ipdb; ipdb.set_trace()
+
+let syntastic_check_on_open = 1
+let g:syntastic_python_checkers = ['pyflakes', 'flake8']
+let g:syntastic_aggregate_errors = 1
