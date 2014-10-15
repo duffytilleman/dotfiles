@@ -204,3 +204,6 @@ au FileType python iabbrev <buffer> ii import ipdb; ipdb.set_trace()
 let syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['pyflakes', 'flake8']
 let g:syntastic_aggregate_errors = 1
+
+let g:ctrlp_user_command = ['.git', 'cd %s && cat <(git ls-files) <(git ls-files --others --exclude-standard)']
+" let g:ctrlp_user_command = ['.git', 'cd %s && cat git ls-files git ls-files --others --exclude-standard']
