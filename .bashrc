@@ -55,7 +55,7 @@ function npm-homepage {
 }
 
 function kill-interface {
-  lsof -F p -i $1 | sed s/p// | xargs kill
+  lsof -F p -s TCP:LISTEN -i $1 | sed s/p// | xargs kill
 }
 
 export PYTHONSTARTUP=~/.pythonrc
