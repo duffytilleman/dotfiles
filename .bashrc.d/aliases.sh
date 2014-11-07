@@ -9,6 +9,9 @@ alias la='ls -A'
 alias ll='ls -alF'
 alias hr='heroku run'
 alias hrs='heroku run --remote staging'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 alias heorku=heroku
 alias h=heroku
