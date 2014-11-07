@@ -106,6 +106,7 @@ syntax enable
 set wmh=0
 
 let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -209,6 +210,9 @@ au FileType html inoremap <buffer> <leader>t </<C-x><C-o>
 noremap <leader>s "sdiwms
 noremap <leader>t "tdiw"sp`s"tP
 
+" Essentially the oposite of 'J' (join)
+noremap <c-J> i<cr><esc>l
+
 " <c-u> in normal mode capitalizes current word
 inoremap <c-u> <esc>muviwU`ua
 
@@ -229,3 +233,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && cat <(git ls-files) <(git ls-files
 
 set undofile
 set undodir=~/.vim/undo/
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+noremap <F3> :redraw!<cr>
