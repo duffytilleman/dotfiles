@@ -92,14 +92,14 @@ Jobs="\j"
 # I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
 
 
-HOSTNAME=`hostname`
-if [ $HOSTNAME == "duffy" ]; then
-  HOSTNAME=''
+HOSTNAMESTRING=`hostname`
+if [ $HOSTNAMESTRING == "duffy" ]; then
+  HOSTNAMESTRING=''
 else
-  HOSTNAME="$IBlue($HOSTNAME)$Color_Off "
+  HOSTNAMESTRING="$IBlue($HOSTNAMESTRING)$Color_Off "
 fi
 
-export PS1=$HOSTNAME$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
+export PS1=$HOSTNAMESTRING$IBlack$Time12h$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [ "$?" -eq "0" ]; then \
