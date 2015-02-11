@@ -9,6 +9,8 @@
 	dc = diff --cached
   unstage = reset HEAD
 	logp = log --pretty=fullline
+  shelve = commit -m 'shelve'
+  unshelve = reset --soft HEAD^
 [core]
 	editor = /usr/bin/vim
 	autocrlf = false
@@ -20,3 +22,5 @@
 	tool = vimdiff
 [heroku]
 	account = duffy
+[rebase]
+	autosquash = true
