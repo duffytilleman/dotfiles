@@ -1,3 +1,8 @@
+global !p
+def snake_to_camel(str):
+		return str.title().replace('_', '')
+endglobal
+
 snippet th "Then" w
 .then(function($1) {
 	$2
@@ -7,6 +12,22 @@ endsnippet
 snippet fn "Anonymous function" w
 function($1) {
 	$2
+}
+endsnippet
+
+snippet fun "Named function" w
+/**
+`!p
+params = t[2].split(',')
+for i, param in enumerate(params):
+		if param == '': continue
+    snip.rv += " * @param {TODO-Type Annotation} %s\n" % param.strip()
+		#if i+1 < len(params):
+		#    snip.rv += "\n"
+` * @returns {TODO-Type Annotation}
+ */
+function ${1:functionName}($2) {
+	$3
 }
 endsnippet
 
@@ -35,14 +56,14 @@ module.exports = $1;
 endsnippet
 
 snippet belongsto "Bookshelf belongs to relation"
-${1:name}: function() {
-	return this.belongsTo(models.${2:Model}, '$1_id');
+${1:relation_name}: function() {
+	return this.belongsTo(models.${2:`!p snip.rv = snake_to_camel(t[1])`}, '$1_id');
 },
 endsnippet
 
 snippet hasmany "Bookshelf had many relation"
-${1:name}: function() {
-	return this.hasMany(models.${2:Model}, '$3_id');
+${1:relation_name}: function() {
+	return this.hasMany(models.${2:`!p snip.rv = snake_to_camel(t[1])`}, '$3_id');
 },
 endsnippet
 
@@ -60,4 +81,22 @@ endsnippet
 
 snippet re "node.js require"
 var $1 = require('${2:$1}');
+endsnippet
+
+snippet $res "Angular $resource"
+Models.$1 = $resource(
+	'/api/${2:`!p snip.rv = t[1].lower()`s}/:id',
+	{id: '@id'},
+	{ 
+		$3
+	}
+);
+endsnippet
+
+snippet todo "TODO comment"
+// @TODO (Duffy `!p import datetime; snip.rv = datetime.datetime.now().strftime('%F')`) 
+endsnippet
+
+snippet logger "Plethora logger"
+var logger = require('${1:..}/util/logger').getLogger(__filename);
 endsnippet
