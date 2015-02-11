@@ -70,3 +70,7 @@ export DAEMON_PID_DIR=$HOME/.daemons/
 if ! ssh-add -L grep "$HOME/.ssh/id_rsa" > /dev/null; then
   ssh-add $HOME/.ssh/id_rsa > /dev/null
 fi
+
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+  . /usr/local/etc/profile.d/z.sh
+fi
