@@ -14,6 +14,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 
 alias heorku=heroku
+alias herkou=heroku
 alias h=heroku
 
 # Platform specific aliases
