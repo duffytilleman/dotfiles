@@ -186,6 +186,8 @@ noremap gk <C-W>k
 noremap gl <C-W>l
 noremap g= <C-W>=
 noremap g\| <C-W>\|
+noremap g< <C-W><
+noremap g> <C-W>>
 
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
