@@ -244,3 +244,5 @@ set undodir=~/.vim/undo/
 cmap w!! w !sudo tee > /dev/null %
 
 noremap <F3> :redraw!<cr>
+
+au FileType gitcommit set tw=72 colorcolumn=72
