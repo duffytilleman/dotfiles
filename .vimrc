@@ -69,6 +69,7 @@ endif
 
 " Easy command mode switch
 inoremap kj <Esc>
+inoremap jk <Esc>
 
 " Fix backspace key in xterm
 inoremap  <BS>
