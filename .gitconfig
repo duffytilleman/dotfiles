@@ -25,3 +25,5 @@
 	account = duffy
 [rebase]
 	autosquash = true
+[grep]
+	extendedRegexp = true
