@@ -9,6 +9,7 @@
 	dc = diff --cached
   unstage = reset HEAD
 	logp = log --pretty=fullline
+	logpa = log --pretty=fullline --graph --all
   shelve = commit -m 'shelve'
   unshelve = reset --soft HEAD^
 [core]
