@@ -12,6 +12,7 @@ alias hrs='heroku run --remote staging'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias d='./docker/exec'
 
 alias heorku=heroku
 alias herkou=heroku
