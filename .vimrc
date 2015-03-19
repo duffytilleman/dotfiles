@@ -36,6 +36,8 @@ set foldmethod=indent
 set foldlevel=99
 set pastetoggle=<F2>
 set colorcolumn=100
+set textwidth=100
+set formatoptions=cqj  "c: autwrap comments, q: allow 'gq' format, j: strip comment leader on join
 
 
 " Keep swap files in one of these 
