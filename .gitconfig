@@ -12,6 +12,7 @@
 	logpa = log --pretty=fullline --graph --all
   shelve = commit -m 'shelve'
   unshelve = reset --soft HEAD^
+  branches-by-date = for-each-ref --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'
 [core]
 	editor = /usr/bin/vim
 	autocrlf = false
