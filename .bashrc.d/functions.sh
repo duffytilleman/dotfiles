@@ -1,7 +1,7 @@
 supa () {
   EXE=$1;
   shift;
-  supervisor -e py -n exit -x $EXE -- "$@"
+  supervisor -e js,py,sh -n exit -x $EXE -- "$@"
 }
 
 latest () {
