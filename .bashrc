@@ -74,3 +74,5 @@ fi
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
 fi
+
+export PATH=$PATH:$HOME/devops/bin
