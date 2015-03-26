@@ -1,6 +1,6 @@
 CURRENT_DIR=$PWD
 
-if which tempfile; then
+if which tempfile > /dev/null; then
   MYTMPDIR=`tempfile`
   rm $MYTMPDIR
 else
