@@ -25,3 +25,4 @@ endfunc
 
 augroup END
 
+au BufNewFile,BufRead *.ini,*.conf setf dosini
