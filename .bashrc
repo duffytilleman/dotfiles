@@ -43,6 +43,10 @@ if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.ba
   source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
   source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 fi
+if [ -f /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-completion.bash ]; then
+  source /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-completion.bash
+  source /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-prompt.sh
+fi
 
 export EDITOR=vi
 
