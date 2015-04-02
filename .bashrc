@@ -71,9 +71,14 @@ export PLETHORA_API_KEY=jlLm7I2XsQ2qMpoRSeIzdW8xBVmwXeqVXj8cA9dehwO/UYOkXmSZrFP4
 export PLETHORA_HOST=http://api.plethora.dev:3000 
 export DAEMON_PID_DIR=$HOME/.daemons/
 
-if ! ssh-add -L grep "$HOME/.ssh/id_rsa" > /dev/null; then
-  ssh-add $HOME/.ssh/id_rsa > /dev/null
-fi
+for keyfile in id_rsa post_theft_id_rsa; do
+  path=$HOME/.ssh/$keyfile
+  if [[ -f "$path" ]]; then
+    if ! ssh-add -L | grep "$path" > /dev/null; then
+      ssh-add "$path" > /dev/null
+    fi
+  fi
+done
 
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
