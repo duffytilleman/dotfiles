@@ -1,6 +1,6 @@
 global !p
 def snake_to_camel(str):
-		return str.title().replace('_', '')
+		return str.title().replace('_', '').replace('-', '')
 endglobal
 
 snippet th "Then" w
@@ -56,14 +56,38 @@ module.exports = $1;
 endsnippet
 
 snippet belongsto "Bookshelf belongs to relation"
+/**
+ * Belongs-to realation for $1
+ * @method; @instance; @memberof $3
+ */
 ${1:relation_name}: function() {
 	return this.belongsTo(models.${2:`!p snip.rv = snake_to_camel(t[1])`}, '$1_id');
 },
 endsnippet
 
-snippet hasmany "Bookshelf had many relation"
+snippet hasmany "Bookshelf has many relation"
+/**
+ * Has-many relation for $1
+ * @method; @instance; @memberof $3
+ */
 ${1:relation_name}: function() {
-	return this.hasMany(models.${2:`!p snip.rv = snake_to_camel(t[1])`}, '$3_id');
+	return this.hasMany(models.${2:`!p snip.rv = snake_to_camel(t[1])`}, '${4:`!p snip.rv = t[3].lower()`}_id');
+},
+endsnippet
+
+snippet method "Bookshelf method"
+/**
+ * $3
+ * @method; @instance; @memberof ${4:`!p snip.rv = snake_to_camel(snip.basename)`}`!p
+params = t[2].split(',')
+for i, param in enumerate(params):
+		if param == '': continue
+		snip += " * @param {TODO-Type Annotation} %s" % param.strip()
+`
+ * @returns {TODO-Type Annotation}
+ */
+${1:functionName}: function $1($2) {
+	$5
 },
 endsnippet
 
