@@ -253,3 +253,12 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+
+"JsBeautify Settings
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType html noremap <buffer>  <c-f> :call HtmlBeautify()<cr>
+autocmd FileType html vnoremap <buffer>  <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css noremap <buffer>  <c-f> :call CssBeautify()<cr>
+autocmd FileType css vnoremap <buffer>  <c-f> :call RangeCssBeautify()<cr>
