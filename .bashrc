@@ -35,6 +35,9 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+if [ -f $HOME/.git-completion.bash ]; then
+  source $HOME/.git-completion.bash
+fi
 if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
   source /usr/local/git/contrib/completion/git-completion.bash
   source /usr/local/git/contrib/completion/git-prompt.sh
