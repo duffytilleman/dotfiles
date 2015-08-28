@@ -17,6 +17,9 @@ shopt -s histappend
 HISTSIZE=100000
 HISTFILESIZE=200000
 
+# flush commands to history immediately
+export PROMPT_COMMAND='history -a'
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
