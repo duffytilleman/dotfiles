@@ -262,3 +262,7 @@ autocmd FileType html noremap <buffer>  <c-f> :call HtmlBeautify()<cr>
 autocmd FileType html vnoremap <buffer>  <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css noremap <buffer>  <c-f> :call CssBeautify()<cr>
 autocmd FileType css vnoremap <buffer>  <c-f> :call RangeCssBeautify()<cr>
+
+"vim-multiple-cursors settings
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
