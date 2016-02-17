@@ -92,8 +92,11 @@ fi
 
 export PATH=$PATH:$HOME/devops/bin
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/duffy/google-cloud-sdk/path.bash.inc'
+gclouddir='/home/duffy/google-cloud-sdk'
+if [[ -f $gclouddir ]]; then
+  # The next line updates PATH for the Google Cloud SDK.
+  source "$gclouddir/path.bash.inc"
+  # The next line enables bash completion for gcloud.
+  source "$gclouddir/completion.bash.inc"
+fi
 
-# The next line enables bash completion for gcloud.
-source '/home/duffy/google-cloud-sdk/completion.bash.inc'
