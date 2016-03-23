@@ -225,12 +225,16 @@ inoremap <c-u> <esc>muviwU`ua
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>:echo "Sourced .vimrc"<cr>
 
+" sqlwrap
+nnoremap <leader>gs :s/\(from\|where\|and\|group by\|order by\)/\r\1/g<cr>
+
 vnoremap <c-q> <esc>`<i'<esc>`>a'<esc>
 
 au FileType python iabbrev <buffer> ii import ipdb; ipdb.set_trace()
 
 let syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['pyflakes', 'flake8']
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_aggregate_errors = 1
 
 let g:ctrlp_user_command = ['.git', 'cd %s && cat <(git ls-files) <(git ls-files --others --exclude-standard)']
