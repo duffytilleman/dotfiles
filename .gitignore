@@ -6,3 +6,4 @@
 .ipython/profile_default/history.sqlite
 .ipython/*/security
 .tmux/resurrect
+.bashrc.d/sensitive-env.sh
