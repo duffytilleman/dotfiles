@@ -100,3 +100,5 @@ if [[ -f $gclouddir ]]; then
   source "$gclouddir/completion.bash.inc"
 fi
 
+
+export PLETHORA_HOME=$HOME
