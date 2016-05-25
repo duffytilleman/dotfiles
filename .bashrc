@@ -101,4 +101,7 @@ if [[ -f $gclouddir ]]; then
 fi
 
 
+export NVM_DIR="/home/duffy/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
 export PLETHORA_HOME=$HOME
