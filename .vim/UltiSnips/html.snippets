@@ -15,14 +15,14 @@ snippet pill "Plethora pill element" w
 endsnippet
 
 snippet table "Table" w
-<table class="pTable">
+<table p-sortable>
 	<thead>
-		<tr>
+		<tr p-sort-by="">
 			$1
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="$2">
+		<tr p-sortable-repeat="$2">
 			$3
 		</tr>
 	</tbody>
