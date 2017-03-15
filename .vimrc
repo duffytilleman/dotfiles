@@ -1,7 +1,7 @@
 filetype off
-call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#infect()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
 
 " Tabs and Spaces
 set tabstop=2
@@ -207,7 +207,6 @@ inoremap <leader>, <C-x><C-o>
 autocmd QuickFixCmdPost *grep* cwindow
 
 nnoremap <leader>g :silent Ggrep<space>
-nnoremap <leader>n :cn<return>
 
 " type ,t in normal mode to close open html tags
 au FileType html inoremap <buffer> <leader>t </<C-x><C-o>
@@ -226,16 +225,12 @@ inoremap <c-u> <esc>muviwU`ua
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>:echo "Sourced .vimrc"<cr>
 
-" sqlwrap
-nnoremap <leader>gs :s/\(from\|where\|and\|group by\|order by\)/\r\1/g<cr>
-
 vnoremap <c-q> <esc>`<i'<esc>`>a'<esc>
 
 au FileType python iabbrev <buffer> ii import ipdb; ipdb.set_trace()
 
 let syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['pyflakes', 'flake8']
-let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_aggregate_errors = 1
 
 let g:ctrlp_user_command = ['.git', 'cd %s && cat <(git ls-files) <(git ls-files --others --exclude-standard)']
@@ -252,26 +247,9 @@ noremap <F3> :redraw!<cr>
 
 au FileType gitcommit set tw=72 colorcolumn=72
 
-highlight ExtraWhitespace ctermbg=235 guibg=110
+highlight ExtraWhitespace ctermbg=235
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
-
-"JsBeautify Settings
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType html noremap <buffer>  <c-f> :call HtmlBeautify()<cr>
-autocmd FileType html vnoremap <buffer>  <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css noremap <buffer>  <c-f> :call CssBeautify()<cr>
-autocmd FileType css vnoremap <buffer>  <c-f> :call RangeCssBeautify()<cr>
-
-"vim-multiple-cursors settings
-let g:multi_cursor_exit_from_visual_mode = 0
-let g:multi_cursor_exit_from_insert_mode = 0
-
-"typo fixing
-iab opearation operation
-iab opeartion operation
