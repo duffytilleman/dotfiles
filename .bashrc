@@ -85,8 +85,6 @@ if [ -f /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
 fi
 
-export PATH=$PATH:$HOME/devops/bin
-
 gclouddir='/home/duffy/google-cloud-sdk'
 if [[ -f $gclouddir ]]; then
   # The next line updates PATH for the Google Cloud SDK.
@@ -100,3 +98,5 @@ export NVM_DIR="/home/duffy/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PLETHORA_HOME=$HOME
+
+set +o noclobber

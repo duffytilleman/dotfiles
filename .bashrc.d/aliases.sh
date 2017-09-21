@@ -1,10 +1,12 @@
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias gitx='/Applications/GitX.app/Contents/Resources/gitx'
-alias gp='git push'
+alias gp='git pull'
 alias grep='grep --color=auto'
 alias gs='git status'
 alias gca='git commit --amend'
+alias gc='git checkout'
+alias gcm='git checkout master'
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
@@ -26,5 +28,3 @@ if [[ $platform == 'Linux' ]]; then
 elif [[ $platform == 'Darwin' ]]; then
   alias ls='ls -G'
 fi
-
-function psgrep() { ps aux | grep -v grep | grep "$@" -i --color=auto; }

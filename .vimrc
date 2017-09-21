@@ -31,7 +31,6 @@ set report=0       " report all changes
 set laststatus=2   " always show status-line
 set cursorline     " highlight current line
 set scrolloff=4
-"set nofoldenable
 set foldmethod=indent
 set foldlevel=99
 set pastetoggle=<F2>
@@ -41,7 +40,7 @@ set formatoptions=cqj  "c: autwrap comments, q: allow 'gq' format, j: strip comm
 
 
 " Keep swap files in one of these 
-set directory=~/tmp,~/.tmp,/var/tmp,/tmp,.
+set directory=~/tmp//,~/.tmp//,/var/tmp//,/tmp//,.
 
 " Let's see some useful info in the status line
 set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
@@ -235,7 +234,7 @@ au FileType python iabbrev <buffer> ii import ipdb; ipdb.set_trace()
 
 let syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['pyflakes', 'flake8']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_aggregate_errors = 1
 
 let g:ctrlp_user_command = ['.git', 'cd %s && cat <(git ls-files) <(git ls-files --others --exclude-standard)']
@@ -275,3 +274,24 @@ let g:multi_cursor_exit_from_insert_mode = 0
 "typo fixing
 iab opearation operation
 iab opeartion operation
+
+"ctags support: look for a .tags file in the current directory
+set tags=./.tags
+
+"fixes file watching, see https://webpack.github.io/docs/troubleshooting.html
+set backupcopy=yes
+
+"Config for vim-closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.js"
+
+set nofoldenable
+
+"sort es6 imports, e.g. `import { foo, bar } from 'baz';` becomes `import { bar, foo } from 'baz';`
+function! SortImports()
+  let line=getline('.')
+  let sections=split(line, '[{}]')
+  let imports=sort(split(sections[1], ','))
+  let newline=sections[0] . "{" . join(imports, ',') . "}" . sections[2]
+  call setline('.', newline)
+endfunction
+nnoremap <leader>sl :call SortImports()<cr>

@@ -4,7 +4,7 @@ def snake_to_camel(str):
 endglobal
 
 snippet th "Then" w
-.then(function($1) {
+.then(($1) => {
 	$2
 })
 endsnippet
@@ -104,7 +104,7 @@ it('$1', function() {
 endsnippet
 
 snippet re "node.js require"
-var $1 = require('${2:$1}');
+const $1 = require('${2:$1}');
 endsnippet
 
 snippet $res "Angular $resource"
