@@ -1,0 +1,4 @@
+git-sout () {
+  branch=${1:-master}
+  git stash && git checkout $branch && git pull && git stash pop
+}
