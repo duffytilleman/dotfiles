@@ -295,3 +295,7 @@ function! SortImports()
   call setline('.', newline)
 endfunction
 nnoremap <leader>sl :call SortImports()<cr>
+
+let g:BASH_CTRL_j = 'off'
+noremap <C-k> 10k
+noremap <C-j> 10j
