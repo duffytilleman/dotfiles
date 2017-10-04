@@ -299,3 +299,7 @@ nnoremap <leader>sl :call SortImports()<cr>
 let g:BASH_CTRL_j = 'off'
 noremap <C-k> 10k
 noremap <C-j> 10j
+
+"Quickly move to the next quickfix match
+noremap <leader>q :cn<cr>
+noremap <leader>Q :cN<cr>
