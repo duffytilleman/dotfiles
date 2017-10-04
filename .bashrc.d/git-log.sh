@@ -1,25 +1,19 @@
 #! /bin/bash
 
-gl () {
-  if [[ ! -d .git ]]; then
-    echo "Not in a git directory"
-    return 1
-  fi
+_git_log_pretty_format="format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
 
-  mkdir -p .git/tag-backup
-  mv .git/refs/tags/* .git/tag-backup
-  git log --pretty="format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"
-  mv .git/tag-backup/* .git/refs/tags
+strip-git-tags () {
+  sed 's/tag: [0-9.a-z-]\+,\? \?//g' | sed 's/ ()//' | less -R
+}
+
+gl () {
+  git log --pretty="$_git_log_pretty_format" "$@" | strip-git-tags
 }
 
 gla () {
-  if [[ ! -d .git ]]; then
-    echo "Not in a git directory"
-    return 1
-  fi
+  git log --pretty="$_git_log_pretty_format" --graph --all | strip-git-tags
+}
 
-  mkdir -p .git/tag-backup
-  mv .git/refs/tags/* .git/tag-backup
-  git log --pretty="format:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --graph --all
-  mv .git/tag-backup/* .git/refs/tags
+glm () {
+  git log --pretty="$_git_log_pretty_format" --graph --branches master | strip-git-tags
 }
