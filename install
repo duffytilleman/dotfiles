@@ -1,12 +1,15 @@
-#! /usr/bin/env ruby
-require "fileutils"
+#!/bin/bash
 
-FileUtils.cd(File.dirname(__FILE__)) do
-  files = Dir.glob(".*") - %w{. .. .git .gitignore}
-  home = ENV["HOME"]
-  print "Copy #{files.join(" ")} into #{home} (y/n)? "
-  if gets.chomp.downcase == "y"
-    FileUtils.cd(home){ FileUtils.rm_rf files }
-    FileUtils.cp_r files, home
-  end
-end
+set -eu IFS=" "
+
+dirnames=$(git ls-files | xargs dirname | sort | uniq)
+for dir in $dirnames; do
+  mkdir -p "../$dir"
+done
+
+
+for f in $(git ls-files); do
+  cp -r $f "../$f"
+done
+
+rm ../install ../update
