@@ -100,3 +100,9 @@ export NVM_DIR="/home/duffy/.nvm"
 export PLETHORA_HOME=$HOME
 
 set +o noclobber
+
+# FZF fuzzy file finder https://github.com/junegunn/fzf
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
+  bind -x '"\C-p": FILE=$(fzf) && vim "$FILE";'
+fi
