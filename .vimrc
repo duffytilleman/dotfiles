@@ -251,7 +251,7 @@ noremap <F3> :redraw!<cr>
 
 au FileType gitcommit set tw=72 colorcolumn=72
 
-highlight ExtraWhitespace ctermbg=235 guibg=110
+highlight ExtraWhitespace ctermbg=235
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
