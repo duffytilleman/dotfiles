@@ -4,9 +4,14 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 call plug#begin()
-Plug 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'       "Fuzzy file finder
+Plug 'tpope/vim-vinegar'    "Use - to navigate up to folder
+Plug 'tpope/vim-eunuch'     "Unix commands, e.g. :Delete
+Plug 'alvan/vim-closetag'   "Autoclose html tags
+Plug 'wesQ3/vim-windowswap' ",ww to swap vim panes
 " On-demand loading
 call plug#end()
+noremap <F4> :source $MYVIMRC<cr>:PlugInstall<cr>
 
 " Tabs and Spaces
 set tabstop=2
