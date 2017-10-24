@@ -3,6 +3,7 @@
 .viminfo
 .vim/.netrwhist
 .vim/undo/*
+.vim/plugged
 .ipython/profile_default/history.sqlite
 .ipython/*/security
 .tmux/resurrect
