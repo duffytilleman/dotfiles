@@ -26,8 +26,5 @@ fi
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # added by Anaconda 1.9.1 installer
 # export PATH="/Users/duffy/anaconda/bin:$PATH"
