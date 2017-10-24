@@ -4,13 +4,23 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 call plug#begin()
-Plug 'kien/ctrlp.vim'       "Fuzzy file finder
-Plug 'tpope/vim-vinegar'    "Use - to navigate up to folder
-Plug 'tpope/vim-eunuch'     "Unix commands, e.g. :Delete
-Plug 'alvan/vim-closetag'   "Autoclose html tags
-Plug 'wesQ3/vim-windowswap' ",ww to swap vim panes
-Plug 'sheerun/vim-polyglot' "all the language packs
-Plug 'moll/vim-node'        "gf on a require to open file, and more
+Plug 'SirVer/ultisnips'         "snippet manager
+Plug 'alvan/vim-closetag'       "autoclose html tags
+Plug 'honza/vim-snippets'       "community snippets for ultisnips
+Plug 'kien/ctrlp.vim'           "fuzzy file finder
+Plug 'moll/vim-node'            "gf on a require to open file, and more
+Plug 'scrooloose/nerdcommenter' ",cc to comment a line
+Plug 'sheerun/vim-polyglot'     "all the language packs
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-abolish'        "crs (coerce to snake_case), :Subvert and more
+Plug 'tpope/vim-eunuch'         "Unix commands, e.g. :Delete
+Plug 'tpope/vim-fugitive'       "git wrapper
+Plug 'tpope/vim-repeat'         "make vim-surround and other plugins work with `.` to repeat
+Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags
+Plug 'tpope/vim-vinegar'        "use - to navigate up to folder
+Plug 'vim-syntastic/syntastic'  "incorporate external syntax checkers/linters
+Plug 'wesQ3/vim-windowswap'     ",ww to swap vim panes
+
 " On-demand loading
 call plug#end()
 noremap <F4> :source $MYVIMRC<cr>:PlugInstall<cr>
@@ -315,3 +325,6 @@ noremap <C-j> 10j
 "Quickly move to the next quickfix match
 noremap <leader>q :cn<cr>
 noremap <leader>Q :cN<cr>
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
