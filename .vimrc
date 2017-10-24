@@ -9,6 +9,8 @@ Plug 'tpope/vim-vinegar'    "Use - to navigate up to folder
 Plug 'tpope/vim-eunuch'     "Unix commands, e.g. :Delete
 Plug 'alvan/vim-closetag'   "Autoclose html tags
 Plug 'wesQ3/vim-windowswap' ",ww to swap vim panes
+Plug 'sheerun/vim-polyglot' "all the language packs
+Plug 'moll/vim-node'        "gf on a require to open file, and more
 " On-demand loading
 call plug#end()
 noremap <F4> :source $MYVIMRC<cr>:PlugInstall<cr>
