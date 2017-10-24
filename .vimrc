@@ -3,6 +3,11 @@ call pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+call plug#begin()
+Plug 'kien/ctrlp.vim'
+" On-demand loading
+call plug#end()
+
 " Tabs and Spaces
 set tabstop=2
 set shiftwidth=2
