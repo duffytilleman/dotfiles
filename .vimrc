@@ -10,7 +10,7 @@ Plug 'honza/vim-snippets'       "community snippets for ultisnips
 Plug 'kien/ctrlp.vim'           "fuzzy file finder
 Plug 'moll/vim-node'            "gf on a require to open file, and more
 Plug 'scrooloose/nerdcommenter' ",cc to comment a line
-Plug 'sheerun/vim-polyglot'     "all the language packs
+Plug 'duffytilleman/vim-polyglot' "all the language packs
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'        "crs (coerce to snake_case), :Subvert and more
 Plug 'tpope/vim-eunuch'         "Unix commands, e.g. :Delete
