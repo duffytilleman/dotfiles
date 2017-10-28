@@ -9,12 +9,16 @@ for f in $toplevel; do
   if [[ ! $f =~ ^\..* ]]; then
     echo "$f is not dotfile"
   elif [[ -f $f ]]; then
-    echo "$f is file"
-    cp "../$f" .
+    if [[ -f "../$f" ]]; then
+      echo "copying $f"
+      cp "../$f" .
+    fi
   elif [[ -d $f ]]; then
-    echo "$f is dir"
-    rm -rf $f
-    cp -r "../$f" .
+    if [[ -d "../$f" ]]; then
+      echo "replacing directory $f"
+      rm -rf $f
+      cp -r "../$f" .
+    fi
   else
     echo "not sure what $f is"
   fi
