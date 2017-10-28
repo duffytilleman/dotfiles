@@ -16,6 +16,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'        "crs (coerce to snake_case), :Subvert and more
 Plug 'tpope/vim-eunuch'         "Unix commands, e.g. :Delete
 Plug 'tpope/vim-fugitive'       "git wrapper
+Plug 'tpope/vim-obsession'      "save/restore vim sessions
 Plug 'tpope/vim-repeat'         "make vim-surround and other plugins work with `.` to repeat
 Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags
 Plug 'tpope/vim-vinegar'        "use - to navigate up to folder
