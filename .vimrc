@@ -20,7 +20,7 @@ Plug 'tpope/vim-obsession'      "save/restore vim sessions
 Plug 'tpope/vim-repeat'         "make vim-surround and other plugins work with `.` to repeat
 Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags
 Plug 'tpope/vim-vinegar'        "use - to navigate up to folder
-Plug 'vim-syntastic/syntastic'  "incorporate external syntax checkers/linters
+Plug 'w0rp/ale'                 "async lint engine
 Plug 'wesQ3/vim-windowswap'     ",ww to swap vim panes
 
 " On-demand loading
