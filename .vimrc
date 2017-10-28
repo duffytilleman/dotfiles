@@ -5,6 +5,7 @@ call pathogen#helptags()
 
 call plug#begin()
 Plug 'SirVer/ultisnips'         "snippet manager
+Plug 'airblade/vim-gitgutter'   "gutter markers for changed lines
 Plug 'alvan/vim-closetag'       "autoclose html tags
 Plug 'honza/vim-snippets'       "community snippets for ultisnips
 Plug 'kien/ctrlp.vim'           "fuzzy file finder
@@ -328,3 +329,7 @@ noremap <leader>Q :cN<cr>
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+
+" How often to write swapfile to disk, in ms
+" This value also affects the responsitveness of the gitgutter plugin
+set updatetime=250
