@@ -44,3 +44,8 @@ recent-branches() {
   N=${1:-20}
   git reflog | grep checkout | awk '!seen[$6]++ {print $6}' | head -n $N
 }
+
+cdr() {
+  cd $1
+  tmux rename-window $1
+}
