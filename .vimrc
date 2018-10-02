@@ -4,13 +4,16 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 call plug#begin()
-Plug 'SirVer/ultisnips'         "snippet manager
+Plug 'AndrewRadev/splitjoin.vim' "Easy move from single/multiine statements
+" Plug 'SirVer/ultisnips'         "snippet manager
 Plug 'airblade/vim-gitgutter'   "gutter markers for changed lines
 Plug 'alvan/vim-closetag'       "autoclose html tags
+Plug 'cosminadrianpopescu/vim-tail' "tail-f in vim with TailStart and TailStop
 Plug 'duffytilleman/vim-polyglot' "all the language packs
 Plug 'honza/vim-snippets'       "community snippets for ultisnips
 Plug 'kien/ctrlp.vim'           "fuzzy file finder
 Plug 'moll/vim-node'            "gf on a require to open file, and more
+Plug 'ruanyl/vim-sort-imports'  "sort imports by module, requires node module import-sort
 Plug 'scrooloose/nerdcommenter' ",cc to comment a line
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-abolish'        "crs (coerce to snake_case), :Subvert and more
@@ -22,6 +25,23 @@ Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags
 Plug 'tpope/vim-vinegar'        "use - to navigate up to folder
 Plug 'w0rp/ale'                 "async lint engine
 Plug 'wesQ3/vim-windowswap'     ",ww to swap vim panes
+Plug 'flowtype/vim-flow'        "FlowType and FlowJumpToDev
+
+Plug 'Shougo/deoplete.nvim'     "autocomplete framework
+Plug 'roxma/nvim-yarp'          "required by deoplete
+Plug 'roxma/vim-hug-neovim-rpc' "required by deoplete
+Plug 'wokalski/autocomplete-flow'
+" For func argument completion
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+Plug 'Valloric/YouCompleteMe', { 'for': 'cpp' }
+
+" Plug 'autozimu/LanguageClient-neovim' "lsp client for intellisenes like behavior
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 " On-demand loading
 call plug#end()
@@ -131,30 +151,31 @@ syntax enable
 " Minimum window height = 0
 set wmh=0
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom-ultisnips"]
 
-function! CleverTab()
-   if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-      return "\<Tab>"
-   else
-      return "\<C-N>"
-endfunction
+" function! CleverTab()
+"    if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+"       return "\<Tab>"
+"    else
+"       return "\<C-N>"
+" endfunction
+" 
+" function! g:UltiSnips_Complete()
+"     call UltiSnips#ExpandSnippet()
+"     if g:ulti_expand_res == 0
+"       return CleverTab()
+"     endif
+"     return ""
+" endfunction
 
-function! g:UltiSnips_Complete()
-    call UltiSnips#ExpandSnippet()
-    if g:ulti_expand_res == 0
-      return CleverTab()
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+" 
+" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
 
 
 " inoremap <Tab> <C-R>=CleverTab()<CR>
@@ -298,6 +319,10 @@ let g:multi_cursor_exit_from_insert_mode = 0
 "typo fixing
 iab opearation operation
 iab opeartion operation
+iab diamter diameter
+iab modle model
+iab modles models
+iab improt import
 
 "ctags support: look for a .tags file in the current directory
 set tags=./.tags
@@ -334,3 +359,78 @@ let g:NERDSpaceDelims = 1
 " How often to write swapfile to disk, in ms
 " This value also affects the responsitveness of the gitgutter plugin
 set updatetime=250
+
+noremap g" :s/^\( *\)"\([^"]\+\)"/\1\2/<cr>/kj<cr>
+
+" ALE config (suggestions come from https://flow.org/en/docs/editors/vim/)
+let g:ale_statusline_format = ['X %d', '? %d', '']
+" %linter% is the name of the linter that provided the message
+" %s is the error or warning message
+let g:ale_echo_msg_format = '%linter% says %s'
+" Map keys to navigate between lines with errors and warnings.
+nnoremap <leader>an :ALENextWrap<cr>
+nnoremap <leader>ap :ALEPreviousWrap<cr>
+
+let g:deoplete#enable_at_startup = 1
+" deoplete tab-complete
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
+let g:deoplete#file#enable_buffer_path = 1 " Autocomplete files relative to buffer
+
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+" imap <C-b>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-b>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-b>     <Plug>(neosnippet_expand_target)
+" 
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+let g:flow#enable = 1
+let g:flow#showquickfix = 0
+let g:flow#omnifunc = 0
+
+"Use locally installed flow
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:flow#flowpath = local_flow
+endif
+noremap <F12> :YcmCompleter GoTo<cr>
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript.jsx': ['flow-language-server', '--stdio', '--try-flow-bin'],
+    \ 'javascript': ['flow-language-server', '--stdio', '--try-flow-bin'],
+    \ }
+
+" Enable for deoplete auto-complete profiling
+" call deoplete#custom#option('profile', v:true)
+" call deoplete#enable_logging('DEBUG', 'deoplete.log')
+" call deoplete#custom#option('auto_complete_delay', 2000)
+" function StartProfile()
+" 	execute ':profile start profile.log'
+" 	execute ':profile func *'
+" 	execute ':profile file *'
+" endfunction
+"
+noremap <leader>r cwconst<esc>/from<cr>cw= require(<del><esc>$i)<esc>
