@@ -121,3 +121,5 @@ bind "set show-all-if-ambiguous on"
 # only start cycling full results on the second Tab press
 
 bind "set menu-complete-display-prefix on"
+
+export HEROKU_LEGACY_SSO=1

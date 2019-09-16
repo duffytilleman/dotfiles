@@ -16,6 +16,7 @@
 [core]
 	editor = /usr/bin/vim
 	autocrlf = false
+	trustctime = false
 [push]
 	default = current
 [pretty]
@@ -30,3 +31,5 @@
 	extendedRegexp = true
 [rerere]
 	enabled = true
+[bulkworkspaces]
+	plethora = .
