@@ -1,0 +1,13 @@
+snippet process-exit
+abbr pe
+options head
+  .then(() => process.exit(0))
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+snippet require
+abbr re
+options head
+  const ${1} = require('${2}');

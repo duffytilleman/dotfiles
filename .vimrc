@@ -15,17 +15,21 @@ Plug 'kien/ctrlp.vim'           "fuzzy file finder
 Plug 'moll/vim-node'            "gf on a require to open file, and more
 Plug 'ruanyl/vim-sort-imports'  "sort imports by module, requires node module import-sort
 Plug 'scrooloose/nerdcommenter' ",cc to comment a line
-Plug 'terryma/vim-multiple-cursors'
+if has('nvim')
+  Plug 'mg979/vim-visual-multi'
+else
+  Plug 'terryma/vim-multiple-cursors'
+endif
 Plug 'tpope/vim-abolish'        "crs (coerce to snake_case), :Subvert and more
 Plug 'tpope/vim-eunuch'         "Unix commands, e.g. :Delete
 Plug 'tpope/vim-fugitive'       "git wrapper
 Plug 'tpope/vim-obsession'      "save/restore vim sessions
-Plug 'tpope/vim-repeat'         "make vim-surround and other plugins work with `.` to repeat
 Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags
 Plug 'tpope/vim-vinegar'        "use - to navigate up to folder
 Plug 'w0rp/ale'                 "async lint engine
 Plug 'wesQ3/vim-windowswap'     ",ww to swap vim panes
-Plug 'flowtype/vim-flow'        "FlowType and FlowJumpToDev
+Plug 'flowtype/vim-flow'        "FlowType and FlowJumpToDef
+Plug 'tpope/vim-repeat'         "make vim-surround and other plugins work with `.` to repeat
 
 Plug 'Shougo/deoplete.nvim'     "autocomplete framework
 Plug 'roxma/nvim-yarp'          "required by deoplete
@@ -81,6 +85,8 @@ set pastetoggle=<F2>
 set colorcolumn=100
 set textwidth=100
 set formatoptions=cqj  "c: autwrap comments, q: allow 'gq' format, j: strip comment leader on join
+set timeoutlen=300 "Time to wait for a mapped sequence to complete.
+
 
 
 " Keep swap files in one of these 
@@ -252,6 +258,8 @@ autocmd QuickFixCmdPost *grep* cwindow
 
 nnoremap <leader>g :silent Ggrep<space>
 nnoremap <leader>n :cn<return>
+nnoremap <leader>8 yiw:Ggrep<space><C-R>"<cr>
+vnoremap <C-8> y:Ggrep<space><C-R>"<cr>
 
 " type ,t in normal mode to close open html tags
 au FileType html inoremap <buffer> <leader>t </<C-x><C-o>
@@ -267,7 +275,7 @@ noremap <c-J> i<cr><esc>l
 inoremap <c-u> <esc>muviwU`ua
 
 " quickly edit vimrc
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>:echo "Sourced .vimrc"<cr>
 
 " sqlwrap
@@ -316,6 +324,8 @@ autocmd FileType css vnoremap <buffer>  <c-f> :call RangeCssBeautify()<cr>
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 
+"vim-visual-multi setting
+let g:VM_no_meta_mappings = 1
 "typo fixing
 iab opearation operation
 iab opeartion operation
@@ -332,6 +342,8 @@ set backupcopy=yes
 
 "Config for vim-closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.jsx,*.js"
+" typing >> in rapid succession will type a single '>', without closetag behavior
+inoremap >> >
 
 set nofoldenable
 
@@ -384,11 +396,20 @@ endfunction"}}}
 
 let g:deoplete#file#enable_buffer_path = 1 " Autocomplete files relative to buffer
 
+function! g:Multiple_cursors_before()
+ call deoplete#custom#buffer_option('auto_complete', v:false)
+endfunction
+function! g:Multiple_cursors_after()
+ call deoplete#custom#buffer_option('auto_complete', v:true)
+endfunction
+
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-" imap <C-b>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-b>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-b>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+let g:neosnippet#snippets_directory = "~/.vim/neosnippet"
 " 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -416,7 +437,11 @@ endif
 if executable(local_flow)
   let g:flow#flowpath = local_flow
 endif
-noremap <F12> :YcmCompleter GoTo<cr>
+if exists('*YCMCompleter')
+  noremap <F12> :YcmCompleter GoTo<cr>
+else
+  noremap <F12> :FlowJumpToDef<cr>
+endif
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['flow-language-server', '--stdio', '--try-flow-bin'],
@@ -424,13 +449,14 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 " Enable for deoplete auto-complete profiling
-" call deoplete#custom#option('profile', v:true)
-" call deoplete#enable_logging('DEBUG', 'deoplete.log')
-" call deoplete#custom#option('auto_complete_delay', 2000)
-" function StartProfile()
-" 	execute ':profile start profile.log'
-" 	execute ':profile func *'
-" 	execute ':profile file *'
-" endfunction
-"
+" call deoplete#custom#option('auto_complete_delay', 200)
+function! StartProfile()
+  call deoplete#custom#option('profile', v:true)
+  call deoplete#enable_logging('DEBUG', 'deoplete.log')
+	execute ':profile start profile.log'
+	execute ':profile func *'
+	execute ':profile file *'
+endfunction
+
 noremap <leader>r cwconst<esc>/from<cr>cw= require(<del><esc>$i)<esc>
+set conceallevel=0
