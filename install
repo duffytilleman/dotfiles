@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -eu IFS=" "
+set -eux IFS=" "
 
-dirnames=$(git ls-files | xargs dirname | sort | uniq)
+dirnames=$(git ls-files | xargs -n 1 dirname | sort | uniq)
 for dir in $dirnames; do
   mkdir -p "../$dir"
 done
