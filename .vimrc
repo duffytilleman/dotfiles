@@ -1,7 +1,4 @@
 filetype off
-call pathogen#infect()
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
 call plug#begin()
 Plug 'AndrewRadev/splitjoin.vim' "Easy move from single/multiine statements
