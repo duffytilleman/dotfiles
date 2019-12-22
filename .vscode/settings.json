@@ -1,0 +1,93 @@
+{
+    "workbench.tree.indent": 16,
+    "vim.leader": ",",
+    "vim.insertModeKeyBindings": [
+        {
+          "before": ["k", "j"],
+          "after": ["<Esc>"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [ "<Space>" ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<C-o>"],
+            "commands": [
+                "workbench.action.navigateBack"
+            ]
+        },
+        {
+            "before": ["<C-p>"],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": ["<tab>"],
+            "commands": [
+                "workbench.action.navigateForward"
+            ]
+        },
+        {
+            "before": [ "<Space>" ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": ["<leader>", "c", "<Space>"],
+            "commands": [
+                "editor.action.commentLine"
+            ]
+        },
+        {
+            "before": ["<leader>", "e", "v"],
+            "commands": [
+                "workbench.action.openSettingsJson"
+            ]
+        },
+        {
+            "before": ["<leader>", "z", "a"],
+            "commands": [
+                "editor.toggleFold"
+            ]
+        },
+        {
+            "before": ["g", "h"],
+            "commands": [
+                "workbench.action.focusPreviousGroup"
+            ]
+        },
+        {
+            "before": ["g", "l"],
+            "commands": [
+                "workbench.action.focusNextGroup"
+            ]
+        },
+    ],
+    "window.zoomLevel": -1,
+    "git.suggestSmartCommit": false,
+    "vs-kubernetes": {
+        "vs-kubernetes.knownKubeconfigs": [
+            "/Users/duffy/.kube/config"
+        ],
+        "vs-kubernetes.kubeconfig": "/Users/duffy/.kube/config"
+    },
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "editor.renderWhitespace": "boundary",
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "gitlens.remotes": [
+    ],
+    "gitlens.heatmap.toggleMode": "window",
+    "gitlens.codeLens.enabled": false
+}
