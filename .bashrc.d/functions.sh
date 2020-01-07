@@ -1,3 +1,5 @@
+#!/bin/bash
+
 supa () {
   EXE=$1;
   shift;
@@ -48,4 +50,25 @@ recent-branches() {
 cdr() {
   cd $1
   tmux rename-window $1
+}
+
+most-frequent-commands() {
+  history | awk '{a[$4] += 1} END {for(i in a) print a[i], i}' | sort -V
+}
+
+function make-completion-wrapper () {
+  local function_name="$2"
+  local arg_count=$(($#-3))
+  local comp_function_name="$1"
+  shift 2
+  local function="
+    function $function_name {
+      ((COMP_CWORD+=$arg_count))
+      COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+      "$comp_function_name"
+      return 0
+    }"
+  eval "$function"
+  echo $function_name
+  echo "$function"
 }

@@ -14,8 +14,9 @@ HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=100000
-HISTFILESIZE=200000
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+export HISTIGNORE="ls:cd *:gl:gs:history"
 
 # flush commands to history immediately
 export PROMPT_COMMAND='history -a'
@@ -38,6 +39,7 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 if [ -f $HOME/.git-completion.bash ]; then
   source $HOME/.git-completion.bash
 fi
@@ -123,3 +125,12 @@ bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
 export HEROKU_LEGACY_SSO=1
+
+# complete -F __start_kubectl k
+# source <(kubectl completion bash | set 's/kubectl/k/g/')
+# source <(kubectl completion bash)
+# complete -F __start_kubectl kubectl
+
+# Load pyenv automatically by appending
+eval "$(pyenv init -)"
+

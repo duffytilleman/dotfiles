@@ -8,6 +8,7 @@ alias gs='git status'
 alias gca='git commit --amend'
 alias gc='git checkout'
 alias gcm='git checkout master'
+alias gri='git rebase --interactive'
 alias l='ls -CF'
 alias la='ls -A'
 alias ll='ls -alF'
@@ -18,6 +19,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias d='./docker/exec'
 alias bell='echo '
+alias ggf='git ls-files | grep'
+alias rgf='rg --files | grep'
 
 alias heorku=heroku
 alias herkou=heroku
