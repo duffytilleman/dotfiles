@@ -8,3 +8,4 @@
 .ipython/*/security
 .tmux/resurrect
 .bashrc.d/sensitive-env.sh
+.vscode
