@@ -6,6 +6,8 @@
 # source everything from .bashrc.d
 for f in $(dirname $BASH_SOURCE)/.bashrc.d/*; do source $f; done
 
+export PATH=$PATH:$HOME/.bin
+
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -36,25 +38,28 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+if ! shopt -oq posix; then
+  if [ -f /etc/bash_completion ]; then  # debian
     . /etc/bash_completion
+  elif [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then # mac os homebrew
+    . "/usr/local/etc/profile.d/bash_completion.sh"
+  elif [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
+  fi
 fi
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-if [ -f $HOME/.git-completion.bash ]; then
-  source $HOME/.git-completion.bash
-fi
-if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
-  source /usr/local/git/contrib/completion/git-completion.bash
-  source /usr/local/git/contrib/completion/git-prompt.sh
-fi
-if [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
-  source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
-  source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-fi
-if [ -f /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-completion.bash ]; then
-  source /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-completion.bash
-  source /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-prompt.sh
-fi
+
+# if [ -f $HOME/.git-completion.bash ]; then
+#   source $HOME/.git-completion.bash
+# elif [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
+#   source /usr/local/git/contrib/completion/git-completion.bash
+#   source /usr/local/git/contrib/completion/git-prompt.sh
+# elif [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
+#   source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+#   source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
+# elif [ -f /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-completion.bash ]; then
+#   source /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-completion.bash
+#   source /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-prompt.sh
+# fi
 
 export EDITOR=vi
 
@@ -99,8 +104,6 @@ fi
 export NVM_DIR="/home/duffy/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PLETHORA_HOME=$HOME
-
 set +o noclobber
 
 # FZF fuzzy file finder https://github.com/junegunn/fzf
@@ -124,13 +127,15 @@ bind "set show-all-if-ambiguous on"
 
 bind "set menu-complete-display-prefix on"
 
-export HEROKU_LEGACY_SSO=1
-
-# complete -F __start_kubectl k
+complete -F __start_kubectl k
 # source <(kubectl completion bash | set 's/kubectl/k/g/')
 # source <(kubectl completion bash)
 # complete -F __start_kubectl kubectl
 
 # Load pyenv automatically by appending
-eval "$(pyenv init -)"
+if which -s pyenv; then
+  eval "$(pyenv init -)"
+fi
 
+# Krew kubernetes plugin package manager
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
