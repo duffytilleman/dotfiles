@@ -7,11 +7,16 @@ k-exec () {
   app=$1
   shift;
   pod=$(k-get-pod $app)
-  kubectl exec -it $pod -- $@
+  kubectl exec -it $pod $@
 }
 
 k-logs () {
   app=$1
   shift
   kubectl logs $(k-get-pod $app) $@
+}
+
+k-delete-force () {
+  app=$1
+  kubectl delete --force --grace-period=0 pod $(k-get-pod $app)
 }
