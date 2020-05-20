@@ -3,6 +3,14 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+if [ "${BASH_VERSINFO[0]}" -lt 5 ]; then
+  echo "##################################################################"
+  echo "Bash is old, currently version $BASH_VERSION"
+  echo "On OSX, see https://itnext.io/upgrading-bash-on-macos-7138bd1066ba"
+  echo "##################################################################"
+  echo
+fi
+
 # source everything from .bashrc.d
 for f in $(dirname $BASH_SOURCE)/.bashrc.d/*; do source $f; done
 
