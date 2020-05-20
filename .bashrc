@@ -100,8 +100,8 @@ if [ -f /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
 fi
 
-gclouddir='/home/duffy/google-cloud-sdk'
-if [[ -f $gclouddir ]]; then
+gclouddir="$HOME/.google-cloud-sdk"
+if [[ -d $gclouddir ]]; then
   # The next line updates PATH for the Google Cloud SDK.
   source "$gclouddir/path.bash.inc"
   # The next line enables bash completion for gcloud.
