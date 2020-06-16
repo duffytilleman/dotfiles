@@ -33,6 +33,8 @@ alias gcs='gcloud compute ssh'
 
 alias tma='tmux attach'
 
+alias vscode='open -a /Applications/Visual\ Studio\ Code.app/'
+
 # Platform specific aliases
 platform=`uname`
 if [[ $platform == 'Linux' ]]; then
