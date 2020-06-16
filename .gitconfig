@@ -18,7 +18,7 @@
 	autocrlf = false
 	trustctime = false
 [push]
-	default = current
+	default = simple
 [pretty]
   fullline = tformat:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
 [merge]
