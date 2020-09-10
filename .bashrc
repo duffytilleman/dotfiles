@@ -11,9 +11,6 @@ if [ "${BASH_VERSINFO[0]}" -lt 5 ]; then
   echo
 fi
 
-# source everything from .bashrc.d
-for f in $(dirname $BASH_SOURCE)/.bashrc.d/*; do source $f; done
-
 export PATH=$PATH:$HOME/.bin
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -137,7 +134,7 @@ bind "set menu-complete-display-prefix on"
 
 complete -F __start_kubectl k
 # source <(kubectl completion bash | set 's/kubectl/k/g/')
-# source <(kubectl completion bash)
+source <(kubectl completion bash)
 # complete -F __start_kubectl kubectl
 
 # Load pyenv automatically by appending
@@ -147,3 +144,27 @@ fi
 
 # Krew kubernetes plugin package manager
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# From https://unix.stackexchange.com/a/4220
+# example usage, for `alias apt-inst='apt-get install'`:
+#  make-completion-wrapper _apt_get _apt_get_install apt-get install
+#   complete -F _apt_get_install apt-inst
+function make-completion-wrapper () {
+  local function_name="$2"
+  local arg_count=$(($#-3))
+  local comp_function_name="$1"
+  shift 2
+  local function="
+    function $function_name {
+      ((COMP_CWORD+=$arg_count))
+      COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
+      "$comp_function_name"
+      return 0
+    }"
+  eval "$function"
+}
+
+# source everything from .bashrc.d
+for f in $(dirname $BASH_SOURCE)/.bashrc.d/*; do source $f; done
+unset f
+

@@ -8,11 +8,12 @@ supa () {
 
 latest () {
   if [ -d "$1" ]; then
-    local res=$(ls -Art "$1" | tail -n 1);
+    local res=$(ls -Art "$1" | grep -v '^.git' | tail -n 1);
     if [[ ! $1 =~ /$ ]]; then
       echo $1/$res
+    else
+      echo $1$res;
     fi
-    echo $1$res;
   fi
 }
 
@@ -56,19 +57,11 @@ most-frequent-commands() {
   history | awk '{a[$4] += 1} END {for(i in a) print a[i], i}' | sort -V
 }
 
-function make-completion-wrapper () {
-  local function_name="$2"
-  local arg_count=$(($#-3))
-  local comp_function_name="$1"
-  shift 2
-  local function="
-    function $function_name {
-      ((COMP_CWORD+=$arg_count))
-      COMP_WORDS=( "$@" \${COMP_WORDS[@]:1} )
-      "$comp_function_name"
-      return 0
-    }"
-  eval "$function"
-  echo $function_name
-  echo "$function"
+# Change iterm profile
+# https://coderwall.com/p/t7a-tq/change-terminal-color-when-ssh-from-os-x
+function change-profile() {
+  NAME=$1; if [ -z "$NAME" ]; then NAME="Default"; fi
+  # if you have trouble with this, change
+  # "Default" to the name of your default theme
+  echo -e "\033]50;SetProfile=$NAME\a"
 }

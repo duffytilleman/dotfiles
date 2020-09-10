@@ -30,3 +30,6 @@ git-reset-safe() {
   echo git reset --hard $target
   git reset --hard $target
 }
+
+make-completion-wrapper __git_wrap__git_main _git_reset_safe git reset
+complete -F _git_reset_safe git-reset-safe

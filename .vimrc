@@ -28,15 +28,16 @@ Plug 'wesQ3/vim-windowswap'     ",ww to swap vim panes
 Plug 'flowtype/vim-flow'        "FlowType and FlowJumpToDef
 Plug 'tpope/vim-repeat'         "make vim-surround and other plugins work with `.` to repeat
 
-Plug 'Shougo/deoplete.nvim'     "autocomplete framework
-Plug 'roxma/nvim-yarp'          "required by deoplete
-Plug 'roxma/vim-hug-neovim-rpc' "required by deoplete
-Plug 'wokalski/autocomplete-flow'
+" Plug 'Shougo/deoplete.nvim'     "autocomplete framework
+" Plug 'roxma/nvim-yarp'          "required by deoplete
+" Plug 'roxma/vim-hug-neovim-rpc' "required by deoplete
+" Plug 'wokalski/autocomplete-flow'
 " For func argument completion
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
 Plug 'Valloric/YouCompleteMe', { 'for': 'cpp' }
+Plug 'zxqfl/tabnine-vim', { 'for': ['javascript', 'javascript.jsx', 'typescript', 'python', 'rust', 'vue', 'sh', 'vim'] }
 
 " Plug 'autozimu/LanguageClient-neovim' "lsp client for intellisenes like behavior
 " Plug 'autozimu/LanguageClient-neovim', {

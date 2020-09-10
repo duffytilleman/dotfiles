@@ -1,5 +1,6 @@
 {
     "workbench.tree.indent": 16,
+    "sql-formatter.uppercase": true,
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
         {
@@ -71,7 +72,7 @@
             ]
         },
     ],
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 0,
     "git.suggestSmartCommit": false,
     "vs-kubernetes": {
         "vs-kubernetes.knownKubeconfigs": [
@@ -89,5 +90,18 @@
     "gitlens.remotes": [
     ],
     "gitlens.heatmap.toggleMode": "window",
-    "gitlens.codeLens.enabled": false
+    "gitlens.codeLens.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "extensions.ignoreRecommendations": false,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "vue"
+    ],
+    "vetur.experimental.templateInterpolationService": true,
+    "explorer.confirmDelete": false,
+    "editor.quickSuggestionsDelay": 100,
+    "[sql]": {
+        "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+    },
 }

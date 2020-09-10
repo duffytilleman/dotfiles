@@ -28,3 +28,4 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # added by Anaconda 1.9.1 installer
 # export PATH="/Users/duffy/anaconda/bin:$PATH"
+export PATH="/usr/local/opt/node@12/bin:$PATH"

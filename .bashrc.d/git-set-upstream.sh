@@ -8,3 +8,6 @@ git-set-upstream () {
   fi
   git branch --set-upstream-to=origin/$REV $REV
 }
+
+make-completion-wrapper __git_wrap__git_main _git_set_upstream git branch --set-upstream-to=origin/
+complete -F _git_set_upstream git-set-upstream
