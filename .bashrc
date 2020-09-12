@@ -132,13 +132,15 @@ bind "set show-all-if-ambiguous on"
 
 bind "set menu-complete-display-prefix on"
 
-complete -F __start_kubectl k
-# source <(kubectl completion bash | set 's/kubectl/k/g/')
-source <(kubectl completion bash)
-# complete -F __start_kubectl kubectl
+if command -v kubectl; then
+  complete -F __start_kubectl k
+  # source <(kubectl completion bash | set 's/kubectl/k/g/')
+  source <(kubectl completion bash)
+  # complete -F __start_kubectl kubectl
+fi
 
 # Load pyenv automatically by appending
-if which -s pyenv; then
+if command -v pyenv; then
   eval "$(pyenv init -)"
 fi
 
