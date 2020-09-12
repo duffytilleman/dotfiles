@@ -166,6 +166,11 @@ function make-completion-wrapper () {
   eval "$function"
 }
 
+# guardian-agent for ssh agent forwarding
+if [ -f /usr/local/bin/sga-env.sh ]; then
+  source /usr/local/bin/sga-env.sh
+fi
+
 # source everything from .bashrc.d
 for f in $(dirname $BASH_SOURCE)/.bashrc.d/*; do source $f; done
 unset f
