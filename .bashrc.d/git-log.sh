@@ -7,13 +7,16 @@ strip-git-tags () {
 }
 
 gl () {
-  git log --color --pretty="$_git_log_pretty_format" "$@" | strip-git-tags
+  git log --color --topo-order --pretty="$_git_log_pretty_format" "$@" | strip-git-tags
 }
+__git_complete gl _git_log
 
 gla () {
-  git log --color --pretty="$_git_log_pretty_format" --graph --all | strip-git-tags
+  git log --color --pretty="$_git_log_pretty_format" --graph --all --topo-order | strip-git-tags
 }
+__git_complete gla _git_log
 
 glm () {
   git log --color --pretty="$_git_log_pretty_format" --graph --branches master | strip-git-tags
 }
+__git_complete glm _git_log

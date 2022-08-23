@@ -81,6 +81,8 @@ hi Todo         ctermfg=0   guifg=#000000 ctermbg=184 guibg=#dfdf00
 hi Type         ctermfg=146 guifg=#afafdf                           cterm=none gui=none
 hi Underlined   ctermfg=39  guifg=#00afff                           cterm=underline gui=underline
 hi ALEWarning   ctermfg=52  guifg=#00afff ctermbg=229
+"" Used by ALE for eslint errors
+hi SpellBad     ctermfg=52  guifg=#00afff ctermbg=210
 
 "" Special
 """ .diff

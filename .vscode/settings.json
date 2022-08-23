@@ -1,5 +1,8 @@
 {
+    "debug.javascript.usePreview": false,
+    "terminal.integrated.scrollback": 10000,
     "workbench.tree.indent": 16,
+    "workbench.editor.labelFormat": "short",
     "sql-formatter.uppercase": true,
     "vim.leader": ",",
     "vim.insertModeKeyBindings": [
@@ -13,6 +16,12 @@
             "before": [ "<Space>" ],
             "commands": [
                 "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": ["<leader>", "c", "<Space>"],
+            "commands": [
+                "editor.action.commentLine"
             ]
         },
     ],
@@ -62,17 +71,32 @@
         {
             "before": ["g", "h"],
             "commands": [
-                "workbench.action.focusPreviousGroup"
+                "workbench.action.focusLeftGroupWithoutWrap"
             ]
         },
         {
             "before": ["g", "l"],
             "commands": [
-                "workbench.action.focusNextGroup"
+                "workbench.action.focusRightGroupWithoutWrap"
             ]
         },
+        {
+            "before": ["g", "j"],
+            "commands": [
+                "workbench.action.focusBelowGroupWithoutWrap"
+            ]
+        },
+        {
+            "before": ["g", "k"],
+            "commands": [
+                "workbench.action.focusAboveGroupWithoutWrap"
+            ]
+        },
+        {
+            "before": ["<return>"],
+            "after": [ "o", "<esc>" ]
+        },
     ],
-    "window.zoomLevel": 0,
     "git.suggestSmartCommit": false,
     "vs-kubernetes": {
         "vs-kubernetes.knownKubeconfigs": [
@@ -83,7 +107,7 @@
     "[javascript]": {
         "editor.tabSize": 2
     },
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Visual Studio Light",
     "editor.renderWhitespace": "boundary",
     "editor.tabSize": 2,
     "files.insertFinalNewline": true,
@@ -104,4 +128,42 @@
     "[sql]": {
         "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
     },
+    "editor.accessibilitySupport": "off",
+    "files.associations": {
+        ".gmrc": "jsonc"
+    },
+    "pgsql.connections": [
+        {
+            "host": "localhost",
+            "dbname": "app",
+            "user": "postgres",
+            "password": "",
+            "emptyPasswordInput": false,
+            "port": "5432",
+            "profileName": "dev"
+        },
+        {
+            "host": "localhost",
+            "dbname": "app",
+            "user": "postgres",
+            "password": "",
+            "emptyPasswordInput": false,
+            "port": "5432",
+            "profileName": "local-pim",
+            "connectTimeout": 15,
+            "encrypt": false,
+            "applicationName": "vscode-pgsql",
+            "hostaddr": "",
+            "options": "",
+            "sslmode": "prefer",
+            "clientEncoding": "",
+            "sslcompression": true,
+            "sslcert": "",
+            "sslkey": "",
+            "sslrootcert": "",
+            "sslcrl": "",
+            "requirepeer": ""
+        }
+    ],
+    "typescript.updateImportsOnFileMove.enabled": "always",
 }

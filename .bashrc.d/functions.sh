@@ -65,3 +65,17 @@ function change-profile() {
   # "Default" to the name of your default theme
   echo -e "\033]50;SetProfile=$NAME\a"
 }
+
+alert() {
+  osascript -e "display alert \"$1\"" > /dev/null
+}
+
+select-rows() {
+  file=$1
+  start=$2
+  end=${3:-$2}
+  if ! [ -f "$file" ]; then
+    echo "First arg must be file"
+  fi
+  sed -n "$start,${end}p;$(( $end + 1 ))q" "$file"
+}

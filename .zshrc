@@ -25,3 +25,9 @@ if [ -f '/Users/duffy/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/duffy/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/duffy/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# added by Snowflake SnowSQL installer v1.2
+export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
+if [ -e /Users/duffy/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/duffy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+source /Users/duffy/.config/broot/launcher/bash/br

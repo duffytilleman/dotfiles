@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+envfile="$1"
+shift
+if ! [[ -f $envfile ]]; then
+  >&2 echo "'$envfile' is not a file"
+  exit 1
+fi
+export `cat $envfile | grep --invert-match "^#"`
+exec "$@"

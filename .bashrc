@@ -11,7 +11,7 @@ if [ "${BASH_VERSINFO[0]}" -lt 5 ]; then
   echo
 fi
 
-export PATH=$PATH:$HOME/.bin
+export PATH=$PATH:$HOME/.bin:$HOME/.cargo/bin
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -24,6 +24,7 @@ shopt -s histappend
 export HISTSIZE=100000
 export HISTFILESIZE=200000
 export HISTIGNORE="ls:cd *:gl:gs:history"
+export HISTTIMEFORMAT="%s "
 
 # flush commands to history immediately
 export PROMPT_COMMAND='history -a'
@@ -145,7 +146,7 @@ if command -v pyenv; then
 fi
 
 # Krew kubernetes plugin package manager
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # From https://unix.stackexchange.com/a/4220
 # example usage, for `alias apt-inst='apt-get install'`:
@@ -170,8 +171,37 @@ function make-completion-wrapper () {
 if [ -f /usr/local/bin/sga-env.sh ]; then
   source /usr/local/bin/sga-env.sh
 fi
+make-and-apply-completion-wrapper() {
+  local function_to_wrap="$1"
+  local completion_function="$2"
+  local wrapper_name="_$function_to_wrap"
+  shift 2
+  make-completion-wrapper "$completion_function" "$wrapper_name" $@
+  complete -F "$wrapper_name" "$function_to_wrap"
+}
+
+make-and-apply-completion-wrapper git-combine-branches __git_wrap__git_main git checkout
 
 # source everything from .bashrc.d
 for f in $(dirname $BASH_SOURCE)/.bashrc.d/*; do source $f; done
 unset f
 
+# Something keeps overwriting this in $HOME/.gitconfig, so set it on each login
+git config --global push.default simple
+
+# # McFly history search https://github.com/cantino/mcfly
+export MCFLY_FUZZY=true
+export MCFLY_RESULTS=30
+export MCFLY_RESULTS_SORT=LAST_RUN
+eval "$(mcfly init bash)"
+
+export BREW_NO_AUTO_UPDATE=1
+
+export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
+if [ -e /Users/duffy/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/duffy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+if [ $ITERM_SESSION_ID ]; then
+  export PROMPT_COMMAND='terminal-title "${PWD##*/}"; '"$PROMPT_COMMAND";
+fi
+
+source /Users/duffy/.config/broot/launcher/bash/br

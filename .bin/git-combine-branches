@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+arg_count=$#
+if [ $arg_count -lt 3 ]; then
+  echo 'Specify at least 2 branches to combine and the name of the new branch'
+  echo 'git-combine-branches branch-1 branch-2 new-branch-name'
+  exit 1
+fi
+args=( "$@" )
+
+new_branch=${args[$arg_count - 1]}
+first_branch=${args[0]}
+middle_arg_count=$(( arg_count - 2 ))
+
+middle_args=${args[@]:1:middle_arg_count}
+
+
+echo "git checkout $first_branch"
+git checkout $first_branch
+
+echo "git checkout -b $new_branch"
+git checkout -b $new_branch
+
+for arg in $middle_args; do
+  git checkout $arg
+  git checkout $new_branch
+  echo "git merge $arg"
+  git merge $arg
+done

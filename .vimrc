@@ -6,10 +6,11 @@ Plug 'AndrewRadev/splitjoin.vim' "Easy move from single/multiine statements
 Plug 'airblade/vim-gitgutter'   "gutter markers for changed lines
 Plug 'alvan/vim-closetag'       "autoclose html tags
 Plug 'cosminadrianpopescu/vim-tail' "tail-f in vim with TailStart and TailStop
-Plug 'duffytilleman/vim-polyglot' "all the language packs
+" Plug 'duffytilleman/vim-polyglot' "all the language packs. my fork is from 2017 and has one fix for groovy (used by jenkins)
+" Plug 'sheerun/vim-polyglot'     "all the language packs
 Plug 'honza/vim-snippets'       "community snippets for ultisnips
 Plug 'kien/ctrlp.vim'           "fuzzy file finder
-Plug 'moll/vim-node'            "gf on a require to open file, and more
+" Plug 'moll/vim-node'            "gf on a require to open file, and more
 Plug 'ruanyl/vim-sort-imports'  "sort imports by module, requires node module import-sort
 Plug 'scrooloose/nerdcommenter' ",cc to comment a line
 if has('nvim')
@@ -23,22 +24,41 @@ Plug 'tpope/vim-fugitive'       "git wrapper
 Plug 'tpope/vim-obsession'      "save/restore vim sessions
 Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags
 Plug 'tpope/vim-vinegar'        "use - to navigate up to folder
-Plug 'w0rp/ale'                 "async lint engine
+Plug 'dense-analysis/ale'       "async lint engine
 Plug 'wesQ3/vim-windowswap'     ",ww to swap vim panes
-Plug 'flowtype/vim-flow'        "FlowType and FlowJumpToDef
 Plug 'tpope/vim-repeat'         "make vim-surround and other plugins work with `.` to repeat
+Plug 'tpope/vim-dadbod'         "database client with :DB
+Plug 'kristijanhusak/vim-dadbod-completion'
+Plug 'Quramy/tsuquyomi'         "typescript tsserver client for completion, navigation, etc
+Plug 'Quramy/tsuquyomi-vue'
+Plug 'simnalamburt/vim-mundo'   "Graphical undo tree with :MundoToggle
+Plug 'https://github.com/lifepillar/pgsql.vim.git'
 
 " Plug 'Shougo/deoplete.nvim'     "autocomplete framework
 " Plug 'roxma/nvim-yarp'          "required by deoplete
 " Plug 'roxma/vim-hug-neovim-rpc' "required by deoplete
-" Plug 'wokalski/autocomplete-flow'
 " For func argument completion
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 
-Plug 'Valloric/YouCompleteMe', { 'for': 'cpp' }
-Plug 'zxqfl/tabnine-vim', { 'for': ['javascript', 'javascript.jsx', 'typescript', 'python', 'rust', 'vue', 'sh', 'vim'] }
+" codoto/tabnine-vim is a fork of youcompleteme
+" for some reason it wasn't working when I didn't explicitly specify 'for' (2021-10-21)
+" Plug 'codota/tabnine-vim', { 'for': [
+  " \'cpp',
+  " \'go',
+  " \'javascript',
+  " \'javascript.jsx',
+  " \'python',
+  " \'rust',
+  " \'sh',
+  " \'sql'
+  " \'typescript',
+  " \'vim',
+  " \'vue'
+  " \]}
+" Plug 'codota/tabnine-vim'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'autozimu/LanguageClient-neovim' "lsp client for intellisenes like behavior
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
@@ -228,6 +248,7 @@ let g:SuperTabDefaultCompletionType = "context"
 let mapleader=","
 let maplocalleader="\\"
 
+" Pane/split navigation
 noremap gh <C-W>h
 noremap gj <C-W>j
 noremap gk <C-W>k
@@ -236,6 +257,9 @@ noremap g= <C-W>=
 noremap g\| <C-W>\|
 noremap g< <C-W><
 noremap g> <C-W>>
+noremap g+ <C-W>+
+noremap g- <C-W>-
+
 
 " Make Y consistent with C and D.  See :help Y.
 nnoremap Y y$
@@ -263,8 +287,8 @@ vnoremap <C-8> y:Ggrep<space><C-R>"<cr>
 au FileType html inoremap <buffer> <leader>t </<C-x><C-o>
 
 " swap words with ,s on first word then ,t on second word
-noremap <leader>s "sdiwms
-noremap <leader>t "tdiw"sp`s"tP
+" noremap <leader>s "sdiwms
+" noremap <leader>t "tdiw"sp`s"tP
 
 " Essentially the oposite of 'J' (join)
 noremap <c-J> i<cr><esc>l
@@ -276,17 +300,27 @@ inoremap <c-u> <esc>muviwU`ua
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>:echo "Sourced .vimrc"<cr>
 
+" diffs
+nnoremap <leader>do :diffoff<cr>
+nnoremap <leader>dt :diffthis<cr>
+
 " sqlwrap
 nnoremap <leader>gs :s/\(from\|where\|and\|group by\|order by\)/\r\1/g<cr>
+
+" Copy to system clipboard
+noremap <leader>c :w ! pbcopy<cr><cr>
 
 vnoremap <c-q> <esc>`<i'<esc>`>a'<esc>
 
 au FileType python iabbrev <buffer> ii import ipdb; ipdb.set_trace()
 
-let syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ['pyflakes', 'flake8']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_aggregate_errors = 1
+" Currently not using syntastic, using ALE instead
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_python_checkers = ['pyflakes', 'flake8']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_typescript_checkers = ['tsuquyomi']
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_auto_loc_list = 0
 
 let g:ctrlp_user_command = ['.git', 'cd %s && cat <(git ls-files) <(git ls-files --others --exclude-standard)']
 " let g:ctrlp_user_command = ['.git', 'cd %s && cat git ls-files git ls-files --others --exclude-standard']
@@ -321,6 +355,8 @@ autocmd FileType css vnoremap <buffer>  <c-f> :call RangeCssBeautify()<cr>
 "vim-multiple-cursors settings
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
+highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+highlight link multiple_cursors_visual Visual
 
 "vim-visual-multi setting
 let g:VM_no_meta_mappings = 1
@@ -376,30 +412,32 @@ noremap g" :s/^\( *\)"\([^"]\+\)"/\1\2/<cr>/kj<cr>
 let g:ale_statusline_format = ['X %d', '? %d', '']
 " %linter% is the name of the linter that provided the message
 " %s is the error or warning message
-let g:ale_echo_msg_format = '%linter% says %s'
+let g:ale_echo_msg_format = '[%linter%] (%code%) %s'
 " Map keys to navigate between lines with errors and warnings.
 nnoremap <leader>an :ALENextWrap<cr>
 nnoremap <leader>ap :ALEPreviousWrap<cr>
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
 
-let g:deoplete#enable_at_startup = 1
-" deoplete tab-complete
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
-
-let g:deoplete#file#enable_buffer_path = 1 " Autocomplete files relative to buffer
-
-function! g:Multiple_cursors_before()
- call deoplete#custom#buffer_option('auto_complete', v:false)
-endfunction
-function! g:Multiple_cursors_after()
- call deoplete#custom#buffer_option('auto_complete', v:true)
-endfunction
+" let g:deoplete#enable_at_startup = 1
+" " deoplete tab-complete
+" inoremap <silent><expr> <TAB>
+"     \ pumvisible() ? "\<C-n>" :
+"     \ <SID>check_back_space() ? "\<TAB>" :
+"     \ deoplete#mappings#manual_complete()
+" function! s:check_back_space() abort "{{{
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction"}}}
+" 
+" let g:deoplete#file#enable_buffer_path = 1 " Autocomplete files relative to buffer
+" 
+" function! g:Multiple_cursors_before()
+"  " call deoplete#custom#buffer_option('auto_complete', v:false)
+" endfunction
+" function! g:Multiple_cursors_after()
+"  " call deoplete#custom#buffer_option('auto_complete', v:true)
+" endfunction
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -423,38 +461,86 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
-let g:flow#enable = 1
-let g:flow#showquickfix = 0
-let g:flow#omnifunc = 0
+" " Enable for deoplete auto-complete profiling
+" " call deoplete#custom#option('auto_complete_delay', 200)
+" function! StartProfile()
+"   call deoplete#custom#option('profile', v:true)
+"   call deoplete#enable_logging('DEBUG', 'deoplete.log')
+" 	execute ':profile start profile.log'
+" 	execute ':profile func *'
+" 	execute ':profile file *'
+" endfunction
 
-"Use locally installed flow
-let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
-if matchstr(local_flow, "^\/\\w") == ''
-    let local_flow= getcwd() . "/" . local_flow
-endif
-if executable(local_flow)
-  let g:flow#flowpath = local_flow
-endif
-if exists('*YCMCompleter')
-  noremap <F12> :YcmCompleter GoTo<cr>
-else
-  noremap <F12> :FlowJumpToDef<cr>
-endif
+set conceallevel=0
 
-let g:LanguageClient_serverCommands = {
-    \ 'javascript.jsx': ['flow-language-server', '--stdio', '--try-flow-bin'],
-    \ 'javascript': ['flow-language-server', '--stdio', '--try-flow-bin'],
-    \ }
+let g:tsuquyomi_disable_quickfix = 1
+noremap <F12> :TsuDefinition<cr>
+noremap <F2> :TsuRenameSymbol<cr>
+noremap <F3> :TsuGeterr<cr>
+noremap <F6> :TsuQuickFix<cr>
+" NOTE: I wanted to make this c-[, but terminals treat that the same as ESC
+noremap <c-\> :TsuReferences<cr>
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
-" Enable for deoplete auto-complete profiling
-" call deoplete#custom#option('auto_complete_delay', 200)
-function! StartProfile()
-  call deoplete#custom#option('profile', v:true)
-  call deoplete#enable_logging('DEBUG', 'deoplete.log')
-	execute ':profile start profile.log'
-	execute ':profile func *'
-	execute ':profile file *'
+
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+vnoremap <leader>e :DB $DATABASE_URL<return>
+nnoremap <leader>e :DB $DATABASE_URL<return>
+nnoremap <leader>r :redraw!<return>
+
+function! Prettier()
+  execute ':write'
+  execute ':! ./node_modules/.bin/prettier -w %'
 endfunction
 
-noremap <leader>r cwconst<esc>/from<cr>cw= require(<del><esc>$i)<esc>
-set conceallevel=0
+noremap + :resize +10<return>
+noremap = :resize -10<return>
+
+" coc.nvim config https://github.com/neoclide/coc.nvim
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Default to treating .sql files as pgsql (from https://github.com/lifepillar/pgsql.vim)
+let g:sql_type_default = 'pgsql'
+
+autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni
+" Source is automatically added, you just need to include it in the chain complete list
+let g:db = $DATABASE_URL
+let g:completion_chain_complete_list = {
+    \   'sql': [
+    \    {'complete_items': ['vim-dadbod-completion']},
+    \   ],
+    \ }
+" Make sure `substring` is part of this list. Other items are optional for this completion source
+let g:completion_matching_strategy_list = ['exact', 'substring']
+" Useful if there's a lot of camel case items
+let g:completion_matching_ignore_case = 1
+
+" For use in daily activity log
+noremap <leader>tt :w<cr>:read !date<cr>A | 
