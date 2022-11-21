@@ -16,6 +16,16 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# added by Anaconda 1.9.1 installer
+# export PATH="/Users/duffy/anaconda/bin:$PATH"
+export PATH="/usr/local/opt/node@16/bin:$PATH"
+# export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+if [ -e /Users/duffy/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/duffy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -23,13 +33,6 @@ fi
 if [ -d "$HOME/.bin" ] ; then
     PATH="$HOME/.bin:$PATH"
 fi
-
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-# added by Anaconda 1.9.1 installer
-# export PATH="/Users/duffy/anaconda/bin:$PATH"
-export PATH="/usr/local/opt/node@16/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
-if [ -e /Users/duffy/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/duffy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-export PATH="$HOME/.poetry/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi

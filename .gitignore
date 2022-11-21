@@ -8,5 +8,8 @@
 .ipython/*/security
 .tmux/resurrect
 .bashrc.d/sensitive-env.sh
-.vscode
 .bashrc.d/aliases-private.sh
+.vscode
+.config/nvim/undo
+.config/gcloud/cache
+.config/gcloud/

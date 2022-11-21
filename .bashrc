@@ -11,8 +11,6 @@ if [ "${BASH_VERSINFO[0]}" -lt 5 ]; then
   echo
 fi
 
-export PATH=$PATH:$HOME/.bin:$HOME/.cargo/bin
-
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
@@ -133,15 +131,13 @@ bind "set show-all-if-ambiguous on"
 
 bind "set menu-complete-display-prefix on"
 
-if command -v kubectl; then
-  complete -F __start_kubectl k
-  # source <(kubectl completion bash | set 's/kubectl/k/g/')
-  source <(kubectl completion bash)
-  # complete -F __start_kubectl kubectl
-fi
+complete -F __start_kubectl k
+# source <(kubectl completion bash | set 's/kubectl/k/g/')
+source <(kubectl completion bash)
+# complete -F __start_kubectl kubectl
 
 # Load pyenv automatically by appending
-if command -v pyenv; then
+if which -s pyenv; then
   eval "$(pyenv init -)"
 fi
 
@@ -167,10 +163,6 @@ function make-completion-wrapper () {
   eval "$function"
 }
 
-# guardian-agent for ssh agent forwarding
-if [ -f /usr/local/bin/sga-env.sh ]; then
-  source /usr/local/bin/sga-env.sh
-fi
 make-and-apply-completion-wrapper() {
   local function_to_wrap="$1"
   local completion_function="$2"
@@ -190,9 +182,9 @@ unset f
 git config --global push.default simple
 
 # # McFly history search https://github.com/cantino/mcfly
-export MCFLY_FUZZY=true
-export MCFLY_RESULTS=30
-export MCFLY_RESULTS_SORT=LAST_RUN
+# export MCFLY_FUZZY=true
+export MCFLY_RESULTS=40
+export MCFLY_RESULTS_SORT=RANK # RANK, LAST_RUN
 eval "$(mcfly init bash)"
 
 export BREW_NO_AUTO_UPDATE=1

@@ -22,7 +22,7 @@ Plug 'tpope/vim-abolish'        "crs (coerce to snake_case), :Subvert and more
 Plug 'tpope/vim-eunuch'         "Unix commands, e.g. :Delete
 Plug 'tpope/vim-fugitive'       "git wrapper
 Plug 'tpope/vim-obsession'      "save/restore vim sessions
-Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags
+Plug 'tpope/vim-surround'       "change surrounding quotes, parens, xml tags e.g. cs([
 Plug 'tpope/vim-vinegar'        "use - to navigate up to folder
 Plug 'dense-analysis/ale'       "async lint engine
 Plug 'wesQ3/vim-windowswap'     ",ww to swap vim panes
@@ -33,6 +33,9 @@ Plug 'Quramy/tsuquyomi'         "typescript tsserver client for completion, navi
 Plug 'Quramy/tsuquyomi-vue'
 Plug 'simnalamburt/vim-mundo'   "Graphical undo tree with :MundoToggle
 Plug 'https://github.com/lifepillar/pgsql.vim.git'
+Plug 'goerz/jupytext.vim'
+Plug 'isobit/vim-caddyfile'
+Plug 'cometsong/CommentFrame.vim'
 
 " Plug 'Shougo/deoplete.nvim'     "autocomplete framework
 " Plug 'roxma/nvim-yarp'          "required by deoplete
@@ -103,7 +106,7 @@ set pastetoggle=<F2>
 set colorcolumn=100
 set textwidth=100
 set formatoptions=cqj  "c: autwrap comments, q: allow 'gq' format, j: strip comment leader on join
-set timeoutlen=300 "Time to wait for a mapped sequence to complete.
+set timeoutlen=500 "Time to wait for a mapped sequence to complete.
 
 
 
@@ -169,7 +172,7 @@ noremap k gk
 
 " Syntax coloring
 set t_Co=256
-colorscheme xoria256
+colorscheme nord
 syntax enable
 
 " Minimum window height = 0
@@ -401,6 +404,7 @@ noremap <leader>Q :cN<cr>
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " How often to write swapfile to disk, in ms
 " This value also affects the responsitveness of the gitgutter plugin
@@ -544,3 +548,5 @@ let g:completion_matching_ignore_case = 1
 
 " For use in daily activity log
 noremap <leader>tt :w<cr>:read !date<cr>A | 
+
+noremap <leader>w vip:DB $DATABASE_URL<return>
