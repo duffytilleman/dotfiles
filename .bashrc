@@ -47,6 +47,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   elif [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]]; then # mac os homebrew
     . "/usr/local/etc/profile.d/bash_completion.sh"
+  elif [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]]; then # mac os homebrew, new location
+      . "/opt/homebrew/etc/profile.d/bash_completion.sh"
   elif [ -f /usr/local/etc/bash_completion ]; then
     . /usr/local/etc/bash_completion
   fi
@@ -131,10 +133,12 @@ bind "set show-all-if-ambiguous on"
 
 bind "set menu-complete-display-prefix on"
 
-complete -F __start_kubectl k
-# source <(kubectl completion bash | set 's/kubectl/k/g/')
-source <(kubectl completion bash)
-# complete -F __start_kubectl kubectl
+if command -v kubectl; then
+  complete -F __start_kubectl k
+  # source <(kubectl completion bash | set 's/kubectl/k/g/')
+  source <(kubectl completion bash)
+  # complete -F __start_kubectl kubectl
+fi
 
 # Load pyenv automatically by appending
 if which -s pyenv; then
@@ -196,4 +200,6 @@ if [ $ITERM_SESSION_ID ]; then
   export PROMPT_COMMAND='terminal-title "${PWD##*/}"; '"$PROMPT_COMMAND";
 fi
 
-source /Users/duffy/.config/broot/launcher/bash/br
+if [[ -f "/Users/duffy/.config/broot/launcher/bash/br" ]]; then
+  source /Users/duffy/.config/broot/launcher/bash/br
+fi
