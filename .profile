@@ -16,12 +16,18 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # added by Anaconda 1.9.1 installer
 # export PATH="/Users/duffy/anaconda/bin:$PATH"
-export PATH="/usr/local/opt/node@16/bin:$PATH"
+if [ -d "/usr/local/opt/node@16/bin" ]; then
+  export PATH="/usr/local/opt/node@16/bin:$PATH"
+fi
+if [ -d "/opt/homebrew/opt/node@16/bin" ]; then
+  export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+fi
 # export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+
 if [ -e /Users/duffy/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/duffy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export PATH="$HOME/.poetry/bin:$PATH"
