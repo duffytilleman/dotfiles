@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+const output = process.stdout;
+const tmux = !!process.env.TMUX_PANE;
+const title = process.argv[2] || process.env.PWD
+
+function _owrite(text) {
+  if (!output.writable) return;
+  output.write(text);
+};
+
+// Adapted from blessed/lib/program.js#1673
+function _twrite(data) {
+
+  if (tmux) {
+    // Replace all STs with BELs so they can be nested within the DCS code.
+    data = data.replace(/\x1b\\/g, '\x07');
+
+    // Wrap in tmux forward DCS:
+    data = '\x1bPtmux;\x1b' + data + '\x1b\\';
+
+    return _owrite(data);
+  }
+
+  // return this._write(data);
+  return _owrite(data);
+};
+
+
+_twrite('\x1b]0;' + title + '\x07');
