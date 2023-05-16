@@ -7,6 +7,8 @@
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
+#
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -16,7 +18,6 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # added by Anaconda 1.9.1 installer
 # export PATH="/Users/duffy/anaconda/bin:$PATH"
@@ -42,3 +43,6 @@ fi
 if [ -d "$HOME/.cargo/bin" ] ; then
     PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+# Created by `pipx` on 2023-03-08 19:36:02
+export PATH="$PATH:/Users/duffy/.local/bin"

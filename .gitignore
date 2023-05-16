@@ -10,6 +10,10 @@
 .bashrc.d/sensitive-env.sh
 .bashrc.d/aliases-private.sh
 .vscode
-.config/nvim/undo
+.config/nvim*/undo
 .config/gcloud/cache
 .config/gcloud/
+.config/configstore
+.config/containers
+.config/iterm2
+.config/wireshark

@@ -19,17 +19,22 @@
 
 
 [core]
-	editor = vim
+	editor = nvim
 	autocrlf = false
 	trustctime = false
 [push]
 	default = simple
+	autoSetupRemote = true
 [pretty]
   fullline = tformat:%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset
+[difftool]
+  prompt = true
 [merge]
-	tool = vimdiff
-[heroku]
-	account = duffy
+  tool = nvimdiff
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [rebase]
 	autosquash = true
 [grep]
@@ -38,3 +43,7 @@
 	enabled = true
 [bulkworkspaces]
 	plethora = .
+[init]
+	defaultBranch = main
+# [pull]
+# 	rebase = true

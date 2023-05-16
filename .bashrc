@@ -22,7 +22,7 @@ shopt -s histappend
 export HISTSIZE=100000
 export HISTFILESIZE=200000
 export HISTIGNORE="ls:cd *:gl:gs:history"
-export HISTTIMEFORMAT="%s "
+# export HISTTIMEFORMAT="%s "
 
 # flush commands to history immediately
 export PROMPT_COMMAND='history -a'
@@ -67,7 +67,7 @@ fi
 #   source /usr/local/Cellar/git/2.2.1/etc/bash_completion.d/git-prompt.sh
 # fi
 
-export EDITOR=vi
+export EDITOR=nvim
 
 stty -ixon #disable ctrl+s locking
 
@@ -96,6 +96,8 @@ done
 
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
+elif [ -f /opt/homebrew/etc/profile.d/z.sh ]; then
+  . /opt/homebrew/etc/profile.d/z.sh
 fi
 
 gclouddir="$HOME/.google-cloud-sdk"
@@ -107,7 +109,7 @@ if [[ -d $gclouddir ]]; then
 fi
 
 
-export NVM_DIR="/home/duffy/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 set +o noclobber
@@ -123,6 +125,7 @@ fi
 # If there are multiple matches for completion, Tab should cycle through them
 
 bind 'TAB':menu-complete
+bind '"\t":menu-complete'
 
 # Display a list of the matching files
 
@@ -133,7 +136,7 @@ bind "set show-all-if-ambiguous on"
 
 bind "set menu-complete-display-prefix on"
 
-if command -v kubectl; then
+if command -v kubectl > /dev/null; then
   complete -F __start_kubectl k
   # source <(kubectl completion bash | set 's/kubectl/k/g/')
   source <(kubectl completion bash)
@@ -187,9 +190,9 @@ git config --global push.default simple
 
 # # McFly history search https://github.com/cantino/mcfly
 # export MCFLY_FUZZY=true
-export MCFLY_RESULTS=40
-export MCFLY_RESULTS_SORT=RANK # RANK, LAST_RUN
-eval "$(mcfly init bash)"
+# export MCFLY_RESULTS=40
+# export MCFLY_RESULTS_SORT=RANK # RANK, LAST_RUN
+# eval "$(mcfly init bash)"
 
 export BREW_NO_AUTO_UPDATE=1
 
@@ -203,3 +206,11 @@ fi
 if [[ -f "/Users/duffy/.config/broot/launcher/bash/br" ]]; then
   source /Users/duffy/.config/broot/launcher/bash/br
 fi
+
+# Created by `pipx` on 2023-03-08 19:36:02
+export PATH="$PATH:/Users/duffy/.local/bin"
+eval "$(register-python-argcomplete pipx)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash --disable-up-arrow)"

@@ -31,3 +31,5 @@ export PATH=/Applications/SnowSQL.app/Contents/MacOS:$PATH
 if [ -e /Users/duffy/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/duffy/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 source /Users/duffy/.config/broot/launcher/bash/br
+
+eval "$(atuin init zsh)"

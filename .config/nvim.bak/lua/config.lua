@@ -1,3 +1,12 @@
+-------------------------------------
+-- Svart config
+vim.keymap.set({ "n", "x", "o" }, "s", "<Cmd>Svart<CR>")        -- begin exact search
+vim.keymap.set({ "n", "x", "o" }, "S", "<Cmd>SvartRegex<CR>")   -- begin regex search
+vim.keymap.set({ "n", "x", "o" }, "gs", "<Cmd>SvartRepeat<CR>") -- repeat with last accepted query
+
+
+--------------------------------
+-- Null_ls setup
 local null_ls = require("null-ls")
 
 null_ls.setup({
@@ -16,6 +25,7 @@ null_ls.setup({
 })
 
 
+--------------------------------
 local prettier = require("prettier")
 
 prettier.setup({
@@ -37,6 +47,7 @@ prettier.setup({
 })
 
 
+--------------------------------
 -- Volar (Vue LSP) setup
 
 local volar_takeover = false
@@ -60,7 +71,7 @@ local function on_new_config(new_config, new_root_dir)
   end
 end
 
-local volar_cmd = {'vue-language-server', '--stdio'}
+local volar_cmd = {'vls', '--stdio'}
 local volar_root_dir = lspconfig_util.root_pattern 'package.json'
 
 local volar_api_filetypes
@@ -196,6 +207,9 @@ require('telescope').setup{
     },
     lsp_references = {
       show_line = false
+    },
+    find_files = {
+      hidden = true
     }
 
   },
@@ -215,3 +229,18 @@ require "lsp_signature".setup({
   },
   toggle_key = "<C-space>"
 })
+
+vim.g.coq_settings = {
+  auto_start = 'shut-up',
+  weights = {
+    prefix_matches = 5
+  },
+  clients = {
+    lsp = {
+      weight_adjust = 2
+    },
+    snippets = {
+      weight_adjust = -1 
+    }
+  }
+}
